@@ -1,0 +1,64 @@
+.btnImageOpenBtn {
+  width: 100%;
+}
+.modalbody {
+  width: auto !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.image-popup img {
+  max-height: 100vh;
+}
+#hide {
+  position: absolute;
+  opacity: 0;
+  z-index: -100;
+  white-space: pre;
+}
+.dynamicInputStyle {
+  width: 0px;
+  border-radius: 5px;
+  border: 1px solid rgb(236, 236, 236);
+  min-width: 9px;
+  font-weight: 700;
+}
+.salsenameSelect {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+}
+.salesfilterby {
+  margin-bottom: 4px;
+  color: #767676;
+  font-weight: 500;
+  font-size: 14px;
+}
+.gZWIKX {
+  background-color: #e4e6e8 !important;
+  font-size: 13px !important;
+}
+.eOtTIX {
+  background-color: #e4e6e8 !important;
+  font-size: 13px !important;
+}
+
+.dFsTSm {
+  white-space: unset !important;
+  overflow: initial !important;
+  text-transform: uppercase !important;
+  font-size: 12px;
+}
+
+.fftgrid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+@media screen and (max-width: 503px) {
+  .fftgrid {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+}

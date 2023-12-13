@@ -1,0 +1,94 @@
+.boxSection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 6px;
+}
+.row1 {
+    margin-bottom: 0;
+}
+.boxSection .boxsize {
+    width: 220px;
+    margin-right: 11px;
+    margin-left: 11px;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 15px !important;
+    
+}
+
+.card {
+    margin: 1rem 0;
+}
+.padding-9 {
+    padding: 23px!important;}
+.card {
+    -webkit-transition: box-shadow .25s;
+    transition: box-shadow .25s;
+}
+.card, .card-panel {
+    margin: 0.5rem 0 1rem;
+    border-radius: 2px;
+    background-color: #fff;
+}
+.card, .card.large, .card.medium, .card.small {
+    position: relative;
+}
+.card{
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+}
+.col .row1 {
+    margin-right: -0.75rem;
+    margin-left: -0.75rem;
+}
+.row1 {
+    margin-bottom: 0;
+}
+.boxSection .boxsize .text-align-center {
+    text-align: center;
+}
+
+.boxSection .boxsize .text-align-center h5 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    display: inline-block;
+    vertical-align: middle;
+    word-break: break-all;
+}
+.mb-0 {
+    margin-bottom: 0!important;
+}
+h5.mb-0{
+    font-size: 1.64rem;
+    margin: 0.82rem 0 0.656rem;
+}
+.boxSection .boxsize .text-align-center {
+    text-align: center;
+}
+.boxSection .boxsize .text-align-center p {
+    text-transform: none;
+    font-size: 0.99rem;
+    letter-spacing: 0px;
+    display: block;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.4);
+    letter-spacing: 1px;
+    font-weight: 700;
+    text-transform: uppercase !important;
+}
+.no-margin {
+    margin: 0!important;
+}
+.boxSection .boxsize:hover {
+    box-shadow: 28px 30px 20px rgba(105, 91, 91, 0.2);
+}
+.boxSection .boxsize:hover h5 {
+    transform: scale(1.1) translateY(-3px);
+    color: #2A3F73;
+}
+.boxSection .boxsize:hover p {
+    transform: translateY(-2px);
+    color: #3d9730 !important;
+}

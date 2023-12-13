@@ -1,0 +1,14 @@
+.main-heading {
+    font-weight: 700!important;
+    width: 100%!important;
+    margin-bottom: 1.5rem!important;
+    font-size: 1.7rem;
+    line-height: 1.2;
+    font-family: cairo,sans-serif;
+}
+.generate-group-btn {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 10px;
+}

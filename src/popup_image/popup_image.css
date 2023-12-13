@@ -1,0 +1,17 @@
+.main-heading {
+    font-weight: 700!important;
+    width: 100%!important;
+    margin-bottom: 1.5rem!important;
+    font-size: 1.7rem;
+    line-height: 1.2;
+    font-family: cairo,sans-serif;
+}
+.image-center-section {
+    display: flex;
+    justify-content: center;
+}
+.popsavebuttton{
+    text-align: center;
+}
+.popdisableimage{
+    padding: 22px 70px !important;}

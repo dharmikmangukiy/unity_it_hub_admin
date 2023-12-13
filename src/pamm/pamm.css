@@ -1,0 +1,384 @@
+.mmManagement-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.mmManagement-section .input-element {
+    width: 49%;
+}
+.new-pamm-member-count {
+    background-color: #3b3e66;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 12px;
+}
+.new-pamm-member-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 5px;
+}
+.new-pamm-member-section .new-pamm-member-element {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+.new-pamm-member-section .new-pamm-member-element label {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+}
+.new-pamm-member-section .new-pamm-member-element span {
+    font-size: 13px;
+    text-align: center;
+}
+.footer-section {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid hsla(0, .4%, 50%, .3);
+    padding: 5px;
+}
+.table-loader {
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+}
+.money-manager-profile-section .master {
+    background-color: transparent;
+    margin-bottom: 25px;
+    padding: 0;
+}
+.money-manager-profile-section .master .master__wrapper, .money-manager-profile-section .master .master__wrapper .master__inner {
+    max-width: 100%;
+}
+.money-manager-profile-section .master .master__wrapper {
+    padding: 0;
+}
+.master__wrapper {
+    margin: auto;
+    max-width: 1240px;
+    padding: 0 20px;
+    position: relative;
+    width: 100%;
+}
+.money-manager-profile-section .master .master__wrapper .master__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.money-manager-profile-section .master .master__wrapper, .money-manager-profile-section .master .master__wrapper .master__inner {
+    max-width: 100%;
+}
+.master__inner {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+.money-manager-profile-section .master .master__wrapper .master__inner .money-manager-profile-view-section {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+.money-manager-profile-section .master .master__wrapper .master__inner .master__section {
+    width: auto;
+}
+.money-manager-profile-section .master .master__wrapper .master__inner .master__section, .money-manager-profile-section .master .master__wrapper .master__inner .master__section_history {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+}
+.master__section {
+    background-color: #fff;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    padding: 32px;
+    width: 100%;
+}
+.m__profile {
+    align-items: flex-start;
+    display: flex;
+}
+.m__profile__preview {
+    flex-shrink: 0;
+    margin-right: 116px;
+    max-width: 352px;
+    width: 100%;
+}
+.m__profile__preview-head {
+    align-items: center;
+    display: flex;
+}
+.m__profile__image {
+    flex-shrink: 0;
+    height: 72px;
+    position: relative;
+    width: 72px;
+}
+.m__profile__image-avatar {
+    background-color: #e3ebf5;
+    background-image: url(https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png);
+    background-position: 50%;
+    background-size: cover;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+}
+.m__profile__country {
+    border: 2px solid #f6f7f8;
+    border-radius: 2px;
+    bottom: -2px;
+    box-sizing: content-box;
+    box-sizing: initial;
+    height: 12px;
+    left: -2px;
+    position: absolute;
+    width: 16px;
+}
+.m__country-flag {
+    border-style: none;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+.m__profile__about {
+    margin-left: 24px;
+}
+.m__profile__name {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+.portfolio-profile .master .master__inner .money-manager-profile-view-section .m__profile__preview .m__profile__id {
+    font-size: 14px;
+}
+.portfolio-profile .master .master__inner .money-manager-profile-view-section .m__profile__preview .profile__preview-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+.portfolio-profile .master .master__inner .money-manager-profile-view-section .m__profile__preview .profile__preview-nav .portfolio-content-section {
+    border-top: 1px solid #e5e5e5;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+.portfolio-profile .master .master__inner .money-manager-profile-view-section .m__profile__preview .profile__preview-nav .portfolio-content-section .withdrawal-section {
+    display: flex;
+    flex-direction: column;
+}
+.portfolio-profile .master .master__inner .money-manager-profile-view-section .m__profile__preview .profile__preview-nav .portfolio-content-section .withdrawal-section .text-bold-700 {
+    font-weight: 700;
+}
+.money-manager-profile-section .master .master__wrapper .master__inner .master__row {
+    gap: 5px;
+}
+.money-manager-profile-section .master .master__wrapper .master__inner .master__row {
+    margin: 0;
+}
+.master__row {
+    display: flex;
+    flex-wrap: wrap;
+}
+.money-manager-profile-section .master .master__wrapper .master__inner .master__row .master__section_account-details, .money-manager-profile-section .master .master__wrapper .master__inner .master__row .master__section_performance {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+    padding: 15px;
+    width: 49%;
+}
+.w-100 {
+    width: 100%!important;
+}
+.money-manager-profile-section .master .master__wrapper .master__inner .master__section_account-details .account-details__head, .money-manager-profile-section .master .master__wrapper .master__inner .master__section_performance .performance__head {
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 15px;
+}
+._bold {
+    font-weight: 700;
+}
+._medium {
+    font-size: 20px;
+}
+._black {
+    color: #000;
+}
+.money-manager-profile-section .master .master__wrapper .master__inner .master__section_performance .performance__period {
+    flex-wrap: wrap;
+}
+.performance__period {
+    display: flex;
+}
+.money-manager-profile-section .master .master__wrapper .master__inner .master__section_performance .performance__period .performance__period-info:first-child, .money-manager-profile-section .master .master__wrapper .master__inner .master__section_performance .performance__period .performance__period-info:nth-child(2) {
+    width: 50%;
+}
+.money-manager-profile-section .master .master__wrapper .master__inner .master__section_performance .performance__period .performance__period-info {
+    margin-right: 0;
+}
+._gray {
+    color: #878787;
+}
+._smallest {
+    font-size: 12px;
+}
+._upper {
+    text-transform: uppercase;
+}
+.performance__period-info-key {
+    margin-bottom: 12px;
+}
+.profitANDLOSS {
+    border-bottom: 1px solid #e5e5e5;
+    color: #000;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+.text-dark {
+    color: #7a7b97!important;
+}
+.loderforChart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+}
+.loader-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 75px);
+}
+.m__profile__ct-start-button {
+    margin-top: 26px;
+}
+.money-manager-profile-section .master .master__wrapper .master__inner .master__section .m__profile__preview .m__ct-start-button {
+    background-color: #d7ecd9;
+    color: #3d972f;
+    width: 100%;
+}
+.money-manager-profile-section .master .master__wrapper .master__inner .master__section .m__profile__preview .m__ct-start-button .m__ct-start-button__main-text {
+    font-weight: 700;
+}
+.m__ct-start-button__main-text {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+.m__profile__min-invest {
+    font-size: 14px;
+    margin-top: 14px;
+    text-align: center;
+}
+.m__profile__min-invest span {
+    font-weight: 700;
+    margin-left: 8px;
+}
+.performance__period-info {
+    margin-right: 10%;
+    width: 95px;
+}
+.money-manager-profile-section .master .master__wrapper .master__inner .master__section_performance .performance__period .performance__period-info:nth-child(3) {
+    width: 100%;
+}
+.performance__period-pnl-head {
+    display: flex;
+    justify-content: space-between;
+}
+.performance__period-pnl-body {
+    margin-top: 8px;
+}
+.performance__period-pnl-line._positive {
+    background-color: #42b866;
+    border-bottom-left-radius: 100px;
+    border-top-left-radius: 100px;
+}
+.performance__period-pnl-line {
+    height: 2px;
+}
+.performance__period-pnl-line._negative, .r-card__profit-body-line._negative {
+    background-color: #ff5c5c;
+    border-bottom-right-radius: 100px;
+    border-top-right-radius: 100px;
+}
+.account-details__info {
+    display: flex;
+    flex-wrap: wrap;
+}
+.money-manager-profile-section .master .master__wrapper .master__inner .master__row .master__section_account-details .account-details__info .account-details__info-item, .money-manager-profile-section .master .master__wrapper .master__inner .master__row .master__section_account-details .account-details__info .account-details__info-item .account-details__info-head {
+    margin-bottom: 0;
+}
+.account-details__info-item {
+    margin-bottom: 36px;
+    padding-right: 12px;
+    width: 50%;
+}
+.money-manager-profile-section .master .master__wrapper .master__inner .master__row .master__section_account-details .account-details__info .account-details__info-item, .money-manager-profile-section .master .master__wrapper .master__inner .master__row .master__section_account-details .account-details__info .account-details__info-item .account-details__info-head {
+    margin-bottom: 0;
+}
+.account-details__info-head {
+    align-items: center;
+    display: flex;
+    flex-shrink: 0;
+    margin-bottom: 12px;
+}
+.history__nav-wrapper .history__nav {
+    display: flex;
+    justify-content: end;
+}
+.pamm-dashboard-new-user-section {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.filter-with-group-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.pamm-dashboard-boxSection .boxsize {
+    width: 200px;
+}
+.btn_back-section {
+    padding: 10px 0;
+}
+@media screen and (min-width: 320px) and (max-width: 623px) {
+    .mmManagement-section .input-element {
+        width: 100% !important;
+    }
+    .view-margeField {
+        grid-template-columns: 100% !important;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 599px) {
+    .tabsBar .MuiTabs-scrollButtons {
+        display: block !important;
+    }
+    .tabsBar {
+        align-items: center;
+    }
+}
+.money-manager-profile-section .master .master__wrapper .master__inner .master__section .m__profile__preview .m__ct-start-button1{
+    background-color: #ebd7d7;
+    color: #972f2f;
+    margin-bottom: 0;
+}
+.money-manager-profile-section .master .master__wrapper .master__inner .master__section .m__profile__preview .m__ct-start-button2{
+    background-color: #d7ecd9;
+    color: #3d972f;
+    margin-bottom: 0;
+}

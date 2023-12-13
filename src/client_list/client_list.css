@@ -1,0 +1,160 @@
+.main-heading {
+  font-weight: 700 !important;
+  width: 100% !important;
+  margin-bottom: 1.5rem !important;
+  font-size: 1.7rem;
+  line-height: 1.2;
+  font-family: cairo, sans-serif;
+}
+
+.pending-all-15px {
+  padding: 15px;
+}
+
+.linkColor {
+  font-weight: 700;
+  color: #2371ed !important;
+}
+
+.newFilterSection {
+  display: flex;
+  align-items: center;
+}
+
+.filterBy {
+  display: flex;
+  align-items: end;
+  gap: 15px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.searchByCheckbox .MuiFormControlLabel-label {
+  font-size: 12px;
+  text-transform: uppercase !important;
+}
+
+.multipleSelect .MuiInputLabel-shrink {
+  opacity: 0;
+}
+
+.multipleSelect .Mui-focused fieldset legend span {
+  opacity: 1;
+}
+
+.multipleSelect .Mui-focused fieldset legend {
+  line-height: 10px;
+}
+
+.actionGroupButton {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+
+/* .modalWidth100 .MuiPaper-root{
+    width: 100%;
+    max-width: 800px;
+} */
+.elementSection {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.elementSection .w-40 {
+  width: 40% !important;
+}
+
+.elementSection .w-45 {
+  width: 45% !important;
+}
+
+.elementSection .w-30 {
+  width: 30% !important;
+}
+
+.btnStepperAction {
+  display: flex;
+  justify-content: end;
+}
+
+.filterBy .multipleSelect {
+  margin: 0;
+}
+
+.react-confirm-alert {
+  width: 450px;
+  box-shadow: 0 0 24px grey;
+  padding: 20px;
+  border-radius: 15px;
+  background: white;
+}
+
+.react-confirm-alert .confirmation-alert-action-button {
+  display: flex;
+  justify-content: end;
+  gap: 15px;
+}
+
+.react-confirm-alert .confirmation-alert-action-button .btn-danger {
+  color: #fff !important;
+}
+
+.status-text-approved {
+  color: #18c1a7;
+  font-weight: 500;
+}
+
+.status-text-rejected {
+  color: #f9326f;
+  font-weight: 500;
+}
+
+.status-text-pending {
+  color: #cfcf58;
+  font-weight: 600;
+}
+
+.MuiInputBase-colorPrimary.table-dropdown .MuiSelect-select {
+  font-size: 13px;
+}
+
+.actionButton .lead_close_status {
+  color: #cd1414;
+}
+
+.actionButton .lead_completed_status {
+  color: #00bf00;
+}
+.client_table
+  .rdt_Table
+  .rdt_TableHead
+  .rdt_TableHeadRow
+  .rdt_TableCol
+  > div
+  > div {
+  white-space: nowrap;
+}
+.transaction-access-section {
+  display: flex;
+  flex-wrap: wrap;
+}
+.transaction-access-section .input-access-element {
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (min-width: 320px) and (max-width: 702px) {
+  .contentSection .element {
+    width: 100% !important;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 599px) {
+  .tabsBar .MuiTabs-scrollButtons {
+    display: block !important;
+  }
+  .tabsBar {
+    align-items: center;
+  }
+}

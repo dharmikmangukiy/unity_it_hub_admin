@@ -1,0 +1,30 @@
+.tred-body-image {
+  align-items: center;
+  background: rgba(93, 32, 103, 0.1);
+  border-radius: 50%;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  width: 50px;
+}
+.tred-body-image img {
+  height: 29px;
+  width: 34px;
+}
+.tred-body {
+  width: 47%;
+  margin: 5px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 11px;
+  background: #fff;
+  border: 1px solid #dfdfdf;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgb(93 32 103 / 10%);
+}
+@media screen and (max-width: 480px) {
+  .tred-body {
+    width: 100%;
+  }
+}

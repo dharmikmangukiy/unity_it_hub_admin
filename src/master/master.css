@@ -1,0 +1,169 @@
+.main-heading {
+    font-weight: 700!important;
+    width: 100%!important;
+    margin-bottom: 1.5rem!important;
+    font-size: 1.7rem;
+    line-height: 1.2;
+    font-family: cairo,sans-serif;
+}
+.collapsible .content {
+    padding: 6px;
+    background-color: rgb(240, 240, 240);
+    font-size: 14px;
+}
+.collapsible .header {
+    background-color: rgb(200, 200, 200);
+    padding: 6px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid rgb(220, 220, 220);
+}
+.collapsible .header .title {
+    font-weight: 400;
+}
+.preferences label {
+    display: block;
+    padding-bottom: 4px;
+}
+.CollapseSection {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    cursor: pointer;
+}
+.CollapseHeadingTitle {
+    display: flex;
+    gap: 5px;
+    font-weight: 600;
+}
+.Collapse-body-section {
+    padding: 15px;
+}
+.userInforFrom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.elementSection .userInforFrom .element {
+    width: 320px;
+    display: grid;
+    grid-template-columns: 120px 200px;
+    align-items: center;
+}
+.elementSection .userInforFrom .element label {
+    font-weight: 500;
+}
+.elementSection .userInforFrom .element .fakeinput {
+    /* border-bottom: 1px solid #949494;
+    color: #7a7b97;
+    padding: 4px 0 5px;
+    box-sizing: content-box;
+    height: 1.4375em;
+    font-weight: 700; */
+    margin-bottom: 0px !important;
+}
+.elementSection .userInforFrom .element img {
+    width: 100%;
+    height: 150px;
+}
+.elementSection .formActionSection {
+    display: flex;
+    justify-content: end;
+    padding: 15px;
+}
+.collapseActionSection {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.collapseActionSection .boldFont {
+    font-weight: bold;
+}
+.btn-filter {
+    margin-bottom: 0 !important;
+    margin-top: 15px !important;
+}
+.clientListButton {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.tableSearchField {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.tableSearchField.space-between {
+    justify-content: space-between;
+}
+.tableImg {
+    width: 150px;
+    height: 80px;
+}
+.badge {
+    color: #fff;
+    font-size: 14px;
+    line-height: 22px;
+    min-width: 3rem;
+    height: 22px;
+    padding: 0 6px;
+    border-radius: 5px;
+}
+.badge.pending {
+    background-color: #ffc107;
+}
+.badge.approved {
+    background-color: #0d7019;
+}
+.badge.rejected, .btnChangePassword {
+    background-color: #dc3545;
+}
+.btnChangePassword {
+    cursor: pointer;
+    color: #fff;
+    font-size: 1rem;
+    line-height: 22px;
+    min-width: 3rem;
+    height: 22px;
+    padding: 0 6px;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+    font-weight: 700;
+    width: 40%;
+}
+.copy_link {
+    border: 0;
+    background-color: transparent;
+    outline: 0 !important;
+}
+.my-refferal-link {
+    display: flex;
+    justify-content: center;
+}
+.passwordSection {
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+}
+.boldFont {
+    font-weight: 500;
+}
+.refferalSection {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.dotted-border {
+    border: 5px dotted #ececec;
+    padding: 15px;
+}
+.font-color-approved {
+    color: #0d7019;
+}
+.font-color-rejected {
+    color: #dc3545;
+}

@@ -1,0 +1,59 @@
+.addDoc-textbox {
+  padding: 10px;
+}
+.addDoc-textbox {
+  display: flex;
+  gap: 10px;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.addDoc-checkBox {
+  display: flex;
+  align-items: center;
+}
+.addDoc-checkBox input {
+  width: 33px !important;
+  height: 20px !important;
+}
+.addDoc-checkBox label {
+  font-size: 18px;
+}
+.addDoc-main {
+  padding: 10px;
+}
+.addDoc-listView {
+  padding: 10px;
+}
+.addDoc-listView-block-sub-imgF {
+  width: 200px;
+  height: 120px;
+  position: relative;
+}
+.addDoc-listView-block-sub-imgF embed {
+  width: 200px;
+  height: 120px;
+}
+.addDoc-listView-Center {
+  display: flex;
+  align-items: center;
+  padding-top: 0 !important;
+  margin-top: 24px !important;
+  justify-content: center;
+}
+.addDoc-listView-block {
+  margin: 10px 0px;
+}
+.addDoc-listView-sw {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.addDoc-listView-block-sub-imgF img {
+  max-height: 120px !important;
+}
+.position-Eye-addDoc {
+  position: absolute;
+  top: -19px;
+  right: -30px;
+}

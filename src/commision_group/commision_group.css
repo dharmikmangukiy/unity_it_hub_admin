@@ -1,0 +1,107 @@
+.main-heading {
+    font-weight: 700!important;
+    width: 100%!important;
+    margin-bottom: 1.5rem!important;
+    font-size: 1.7rem;
+    line-height: 1.2;
+    font-family: cairo,sans-serif;
+}
+.card-content {
+    padding: 24px;
+}
+.row .col.s12 {
+    width: 100%;
+}
+.view-commission-content-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.view-commission-content-section .view-content-element h6 {
+    font-weight: 700;
+    margin-bottom: 0px;
+}
+.view-commission-content-section .view-content-element {
+    width: 260px;
+}
+.commission-delete-icon {
+    color: red;
+}
+.ib-structure.view-commission-content-section {
+    flex-direction: column;
+}
+.ib-structure.view-commission-content-section .main-section, .ib-structure.view-commission-content-section .pair-section .pair-data {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+.ib-structure.view-commission-content-section .main-section .main-section-input-element {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+}
+.ib-structure.view-commission-content-section .pair-section {
+    padding: 25px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+.ib-structure.view-commission-content-section .pair-section.child-section-visible {
+    display: flex;
+}
+.ib-structure.view-commission-content-section .main-section div:nth-child(1), .ib-structure.view-commission-content-section .pair-section .pair-data div:nth-child(1) {
+    /* width: 150px; */
+    text-transform: capitalize;
+    font-weight: 600;
+}
+.ib-structure.view-commission-content-section .main-section input, .ib-structure.view-commission-content-section .pair-data input  {
+    border-radius: 10px;
+    outline: 0;
+    border: 1px solid #73748b;
+    padding: 5px;
+    width: 120px;
+    margin-top: 0;
+    text-align: center;
+}
+.ib-structure.view-commission-content-section .main-section input, .ib-structure.view-commission-content-section .pair-data .pair-data-title  {
+    min-width: 100px;
+}
+.ib-structure.view-commission-content-section .group-structure-section {
+    border-bottom: 1px solid rgb(0 0 0 / 15%);
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 10px;
+    display: block;
+}
+.ib-structure.view-commission-content-section .group-structure-section .main-section .main-section-title {
+    width: 100%;
+}
+.ib-structure.view-commission-content-section .group-structure-section .main-section .action-section span {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 25px;
+}
+.ib-structure.view-commission-content-section .group-structure-section .main-section .action-section {
+    padding: 0;
+    margin-right: 15px;
+    justify-content: space-between;
+    width: 100%;
+}
+.commission-content-pair-section {
+    margin: 15px 0px;
+    font-size: 17px;
+    font-weight: 500;
+    background-color: #daeeff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+/* .ib-structure.view-commission-content-section .group-structure-section:last-child {
+    border-bottom: 0px solid rgb(0 0 0 / 15%);
+} */
+@media screen and (min-width: 320px) and (max-width: 645px) {
+    .view-commission-content-section .view-content-element {
+        width: 100% !important;
+    }
+}

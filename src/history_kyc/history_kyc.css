@@ -1,0 +1,53 @@
+.main-heading {
+  font-weight: 700 !important;
+  width: 100% !important;
+  margin-bottom: 1.5rem !important;
+  font-size: 1.7rem;
+  line-height: 1.2;
+  font-family: cairo, sans-serif;
+}
+.view-margeField {
+  display: grid;
+  grid-template-columns: 32% 32% 32%;
+  gap: 10px;
+}
+.view-margeField .element {
+  display: flex;
+  word-break: break-word;
+  flex-direction: column;
+}
+.view-margeField label:nth-child(1) {
+  font-weight: 500;
+}
+.view-image-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.view-image-section label:nth-child(1) {
+  font-weight: 500;
+}
+.view-image-section .element img {
+  width: 150px;
+  height: 150px;
+}
+.view-image-section .element embed {
+  width: 150px;
+  height: 150px;
+}
+.popup-loader .loader {
+  height: calc(100vh - 450px);
+}
+.view-image-section .element {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.deposit-upload-image-preview {
+  cursor: pointer;
+}
+.popup-loader {
+  display: flex;
+  justify-content: center;
+  height: 25px;
+}

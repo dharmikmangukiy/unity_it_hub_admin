@@ -1,0 +1,43 @@
+.docH1Text {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #f3f3f3;
+  padding: 10px;
+  border-radius: 7px;
+  width: 780px;
+}
+.picdocMain {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+.doument-input-section {
+  display: flex;
+  align-items: end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.doument-input-section div:nth-child(1) {
+  width: 160px;
+}
+@media screen and (max-width: 473px) {
+  .firstimageofdoc2,
+  .firstimageofdoc1 {
+    width: calc(100vw - 100px);
+  }
+}
+.firstimageofdoc1 {
+  width: 290px;
+}
+.firstimageofdoc2 {
+  width: 290px;
+}
+.id-proof-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.fontsize17 {
+  font-size: 17px !important;
+}

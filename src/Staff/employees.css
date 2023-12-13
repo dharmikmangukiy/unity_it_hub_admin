@@ -1,0 +1,13 @@
+.twofild{
+    width: 100%;
+    margin-right: 15px;
+}
+@media screen and (max-width: 500px) {
+    .flexWrapm {
+      flex-wrap: wrap;
+      gap: 17px;
+    }
+  }
+  .MuiFormLabel-root-MuiInputLabel-root.Mui-error{
+    color: #d32f2f !important;
+  }

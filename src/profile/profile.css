@@ -1,0 +1,1206 @@
+.client-detail-header {
+  display: flex;
+  /* justify-content: space-between; */
+  justify-content: center;
+  background-color: #efeeee;
+  border-radius: 10px;
+  gap: 10px;
+  align-items: center;
+  padding: 5px 10px;
+  flex-wrap: wrap;
+  border-radius: 10px;
+}
+
+.client-detail-header .header-highlight {
+  background-color: #fff;
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.client-detail-header .client-name {
+  text-align: center;
+}
+
+.client-detail-header .client-name label {
+  text-align: center;
+  font-weight: 700;
+  padding: 0 1rem;
+  margin-bottom: 0;
+  font-size: 1.25rem;
+}
+
+.client-detail-header .header-highlight p span {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin-bottom: 0.35rem;
+}
+
+.client-detail-header .header-highlight p {
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.tabsBar button {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.panding-left-right-0 .MuiBox-root {
+  padding: 24px 0;
+}
+
+.header-title {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  border-bottom: 0 solid hsla(0, 0.4%, 50%, 0.3);
+  font-weight: 700 !important;
+  border-width: 1px;
+  border-color: rgba(7, 9, 25, 0.125);
+}
+
+.contentSection {
+  padding: 1.25rem;
+}
+
+.group-header {
+  font-weight: 700;
+  margin: 0.5rem 0rem;
+  font-size: 16px;
+}
+
+.group-header::after {
+  content: "";
+  height: 2px;
+  display: block;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.5),
+    transparent 50%,
+    transparent
+  );
+  margin: 0.5rem 0 0.2rem;
+}
+
+.grid-handle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mt5btngroup {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.mt5btngroup button {
+  font-size: 12px;
+}
+
+.contentSection .element {
+  width: 200px;
+}
+
+.element label {
+  font-size: 14px;
+}
+
+.formSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.newSection-title {
+  padding: 18px 1.25rem 0;
+  margin-bottom: 0;
+  font-size: 0.8rem;
+}
+
+/* .element label.Mui-focused {
+    color: #666666;
+} */
+
+.element .MuiInput-underline.Mui-focused::after {
+  border-bottom: 1px solid #949494;
+}
+.element .MuiInput-underline.Mui-error.Mui-focused::after {
+  border-bottom: 1px solid #d32f2f;
+}
+.paper-main-section {
+  height: 100%;
+}
+
+.btnActionSection {
+  display: flex;
+  justify-content: end;
+  padding: 1.25rem;
+}
+
+.subtitle {
+  font-size: 14px;
+}
+
+.declarationCheckbox .MuiFormControlLabel-label {
+  font-size: 12px;
+}
+
+.MuiMenu-root .MuiMenu-paper .MuiMenu-list .MuiMenuItem-gutters {
+  font-size: 15px;
+}
+
+.employment-details.btnActionSection {
+  padding: 1.25rem 0;
+}
+
+.cancelButton {
+  background-color: #e0e0e0 !important;
+  color: #000 !important;
+}
+
+.dialogMultipleActionButton {
+  display: flex;
+  gap: 10px;
+}
+
+.dialogTitle {
+  font-weight: 700 !important;
+  font-size: 0.92rem !important;
+}
+
+.MuiInputLabel-formControl {
+  font-size: 17px !important;
+  font-weight: 600 !important;
+}
+
+.fileuploadButton input {
+  display: none;
+}
+
+.margeField {
+  display: flex;
+  gap: 15px;
+}
+
+.structureNameSection {
+  display: flex;
+  /* flex-direction: column; */
+}
+
+.structureNameSection label,
+.structureInputSection label {
+  padding: 5px 0px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.structureNameSection input {
+  width: 100%;
+  padding: 5px 10px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  box-sizing: border-box;
+}
+
+.structureInputSection input {
+  width: 100%;
+  padding: 5px 10px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  box-sizing: border-box;
+}
+
+hr.solid {
+  border-top: 1px solid #dedede;
+  border-bottom: 0;
+}
+
+.label-center {
+  display: flex;
+  align-items: center;
+}
+
+.btn-danger {
+  color: red !important;
+}
+
+.contentActionButton {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalWidth100 .MuiDialogContent-root {
+  padding: 16px 30px !important;
+}
+
+.bankDetailsTabSection {
+  padding: 0 25px;
+}
+
+.margin-0 {
+  margin: 0 !important;
+}
+
+.headerSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.headerSection.header-title .groun-button {
+  display: flex;
+  gap: 5px;
+}
+
+.headerSection .header-search-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.documentDetailsTabSection {
+  padding: 25px;
+}
+
+.documentSelectionSection {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.font-color-white {
+  color: #fff !important;
+}
+
+.editor-section-border {
+  border: 1px solid #f1f1f1;
+}
+
+text.highcharts-credits {
+  display: none;
+}
+
+.add_master_structure.btn-danger {
+  color: white !important;
+}
+
+.btn-success:disabled {
+  font-size: 7px;
+  pointer-events: unset !important;
+  cursor: not-allowed !important;
+}
+
+/* .disabled-input-wallet-code .MuiInputLabel-formControl.Mui-disabled {
+    top: -30px;
+} */
+.margin-bottom-remove {
+  margin-bottom: 0px;
+}
+
+.uploaderDropZone > label {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px dashed #cfd9e0;
+  color: #cfd9e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.uploaderDropZone > .received-file {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  box-shadow: 2px 2px 5px rgb(0 0 0 / 10%);
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.uploaderDropZone > .received-file > button {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  cursor: pointer;
+}
+
+.fontimgclose {
+  background-color: #b71c1c;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 10px;
+  font-size: 17px !important;
+}
+
+.grid-handle.panding-left-right-3px {
+  padding: 0 3px;
+}
+.input-font-small {
+  width: 100%;
+}
+.input-font-small input,
+.select-font-small .MuiInputBase-input {
+  font-size: 12px;
+}
+.mt5btngroup .btn-hover-css:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #1565c0;
+}
+.mt5btngroup button {
+  width: 46%;
+}
+.cancelButton:hover {
+  border: none !important;
+  background-color: #e0e0e0 !important;
+}
+
+.uploaderDropZone > label {
+  margin: 0;
+  width: 100%;
+  height: 151px;
+  border: 2px dashed #cfd9e0;
+  color: #cfd9e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.uploaderDropZone {
+  width: 150px;
+  height: 150px;
+}
+.uploaderDropZone > .received-file {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  box-shadow: 2px 2px 5px rgb(0 0 0 / 10%);
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+}
+.uploaderDropZone > .received-file > button {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  cursor: pointer;
+}
+.fontimgclose {
+  background-color: #b71c1c;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 10px;
+  font-size: 17px !important;
+}
+.uploadmr {
+  margin-top: 119px;
+}
+.deposit-upload-image-preview1 {
+  width: 151px;
+  height: 151px;
+}
+.kyc-status-section h5 {
+  display: flex;
+  align-items: center;
+  font-size: 19px;
+}
+
+.padingtop5 {
+  padding-top: 3rem !important;
+}
+.uploaded-proof-view-section {
+  display: flex;
+  justify-content: space-evenly;
+}
+.uploaded-proof-view-section .uploaded-proof-element {
+  display: flex;
+  flex-direction: column;
+}
+
+.addbankloder {
+  padding: 0px 80px !important;
+}
+.padingtopmy5create {
+  padding-top: 17px;
+}
+.createMt5Formloder {
+  padding: 0px 45px !important;
+}
+.text-color-green {
+  color: green;
+}
+.text-color-yellow {
+  color: #b1b122;
+}
+.text-color-red {
+  color: red;
+}
+.display-element {
+  display: flex;
+  gap: 0px;
+  align-items: baseline;
+  width: 47%;
+  flex-direction: column;
+}
+.main-content-display {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 5px;
+}
+.display-element h6 {
+  margin-bottom: 0px;
+}
+.display-element h6:after {
+  content: " :";
+}
+/* .divider {
+    border-bottom: 1px solid black;
+    width: 100%;
+    margin: 10px 0;
+} */
+.main-content-input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+.main-content-input > div,
+.main-content-input > div > div {
+  width: 100%;
+}
+.main-content-input div:last-child {
+  display: flex;
+  justify-content: end;
+}
+.main-content-input div:last-child > button {
+  margin-top: 5px;
+}
+.main-content-input label {
+  margin: 0px !important;
+}
+.master-structure-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.master-structure-section
+  .ib-structure.view-commission-content-section
+  .group-structure-section:last-child {
+  display: block;
+}
+.master-structure-section
+  .ib-structure.view-commission-content-section
+  .group-structure-section
+  .main-section
+  .main-section-title {
+  min-width: 120px;
+}
+.partnership-section {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 15px 0;
+  overflow: auto;
+  padding: 5px;
+}
+.partnership-main-section .master-structure-section {
+  width: 49%;
+  min-width: 450px;
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+  padding: 10px;
+  margin: 0;
+  border-radius: 10px;
+  gap: 0px;
+}
+.partnership-main-section .bankDetailsTabSection .structureNameSection {
+  flex-direction: column;
+  padding: 10px 0;
+}
+.partnership-main-section .bankDetailsTabSection .structureNameSection label {
+  padding: 0;
+  color: #5e7e99;
+  font-weight: 700;
+  font-size: 12px;
+}
+.partnership-main-section .bankDetailsTabSection .structureNameSection span {
+  padding: 0;
+  color: #5e7e99;
+  font-weight: 700;
+  font-size: 14px;
+}
+.referrals-section {
+  margin: 15px 0;
+  overflow: auto;
+}
+.referrals-section table {
+  width: 100%;
+}
+.referrals-section table thead tr {
+  background-color: #2a3f73;
+  color: white;
+}
+.referrals-section table thead tr th,
+.referrals-section table tbody tr td {
+  padding: 10px;
+  font-size: 14px;
+}
+.referrals-section table tbody tr td .collaps-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.referrals-section table tbody tr td .collaps-content i {
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.referrals-section table tbody tr.referral-child-structure-users {
+  background-color: #e4e4e4;
+}
+.referrals-section table tbody tr.referral-child-structure-users2 {
+  background-color: #dadada;
+}
+.referrals-section table tbody tr.referral-child-structure-users1 {
+  background-color: #d1d0d0;
+}
+.referral-commission_rebate-content {
+  padding: 10px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 10px;
+}
+.user-status-section {
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+.preview-image-section {
+  position: relative;
+}
+.preview-image-section button.image-delete-btn {
+  position: absolute;
+  right: -10px;
+  top: -5px;
+  z-index: 1;
+}
+.element-section {
+  display: flex;
+  gap: 10px;
+}
+.element-section label {
+  font-weight: 600;
+}
+.hint-color-red .MuiFormHelperText-root {
+  color: red;
+}
+.master-structure-section .user-links {
+  display: flex;
+  flex-direction: column;
+}
+.master-structure-section .user-links .user-link-header,
+.master-structure-section .user-links .user-link-body {
+  display: grid;
+  grid-template-columns: 150px auto;
+  align-items: center;
+  padding: 5px;
+}
+.master-structure-section .user-links .user-link-header label {
+  font-size: 14px;
+}
+.master-structure-section .user-links .user-link-body {
+  font-size: 13px;
+  font-weight: 600;
+  border-bottom: 2px dashed gray;
+}
+.master-structure-section .user-links .user-link-body .link-section {
+  display: flex;
+  word-break: break-all;
+}
+.downline-table {
+  padding: 10px 20px;
+  overflow-x: auto;
+}
+.downline-table table {
+  width: 100%;
+}
+.downline-table table tbody tr {
+  border-bottom: 1px dashed slategray;
+}
+.downline-table table tr td,
+.downline-table table tr th {
+  padding: 10px;
+}
+.text-center {
+  text-align: center;
+}
+.bankDetailsTabSection.getMyStructure
+  .partnership-section
+  .master-structure-section {
+  width: 100%;
+}
+.editor-section-border .rdw-editor-wrapper .rdw-editor-main {
+  min-height: 200px;
+}
+.IB-Dedicated-Links .master-structure-section .user-links .user-link-body {
+  border-bottom: 0px;
+}
+.bankDetailsTabSection.pamm-section {
+  padding: 25px;
+}
+.bankDetailsTabSection.pamm-section .groupButtonSection {
+  display: flex;
+  justify-content: end;
+}
+.pamm-section .setBoxs .boxSection .boxsize {
+  padding: 0px;
+}
+.pamm-section .setBoxs .boxSection .boxsize h5 {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  vertical-align: middle;
+  word-break: break-all;
+}
+.pamm-section .setBoxs .boxSection .boxsize p {
+  color: rgba(0, 0, 0, 0.4);
+  display: block;
+  font-size: 0.99rem;
+  font-size: 0.9rem;
+  letter-spacing: 0;
+  letter-spacing: 1px;
+  text-transform: none;
+}
+.pamm-section .pamm-withdraw-history-filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: end;
+}
+.pamm-section .pamm-withdraw-history-filter-section .filter-element {
+  width: 150px;
+}
+.text-color-green {
+  color: green;
+}
+.text-color-red {
+  color: red;
+}
+
+.pamm-section .money-manager-card-list-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.pamm-section .money-manager-card-list-section .money-manager-content {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%),
+    0 1px 5px 0 rgb(0 0 0 / 20%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 255px;
+}
+.pamm-section
+  .money-manager-card-list-section
+  .money-manager-content
+  .money-manager-header-section {
+  background-color: #2a3f73;
+  border-radius: 10px 10px 0 0;
+  color: #fff;
+  padding: 5px 10px;
+}
+.pamm-section
+  .money-manager-card-list-section
+  .money-manager-content
+  .money-manager-body-section {
+  padding: 15px;
+}
+.pamm-section
+  .money-manager-card-list-section
+  .money-manager-content
+  .money-manager-footer-action-section {
+  display: flex;
+}
+.pamm-section .navlink-color-white {
+  color: #fff !important;
+}
+.pamm-section
+  .money-manager-card-list-section
+  .money-manager-content
+  .money-manager-header-section
+  label {
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.pamm-section
+  .money-manager-card-list-section
+  .money-manager-content
+  .money-manager-body-section
+  .money-manager-body-content-element.marge-element:first-child {
+  border-top: 0;
+}
+.pamm-section
+  .money-manager-card-list-section
+  .money-manager-content
+  .money-manager-body-section
+  .money-manager-body-content-element.marge-element {
+  border-bottom: 1.5px solid #adadad;
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+}
+.pamm-section
+  .money-manager-card-list-section
+  .money-manager-content
+  .money-manager-body-section
+  .money-manager-body-content-element.marge-element
+  div {
+  width: 100%;
+}
+.pamm-section
+  .money-manager-card-list-section
+  .money-manager-content
+  .money-manager-body-section
+  .money-manager-body-content-element.marge-element
+  .right-side-border {
+  border-right: 1px solid #adadad;
+  padding-right: 10px;
+}
+.pamm-section
+  .money-manager-card-list-section
+  .money-manager-content
+  .money-manager-body-section
+  .money-manager-body-content-element
+  label {
+  font-weight: 700;
+}
+.pamm-section
+  .money-manager-card-list-section
+  .money-manager-content
+  .money-manager-body-section
+  .money-manager-body-content-element.marge-element
+  div:first-child
+  p {
+  margin: 0;
+}
+.pamm-section
+  .money-manager-card-list-section
+  .money-manager-content
+  .money-manager-body-section
+  .money-manager-body-content-element.marge-element
+  div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.pamm-section
+  .money-manager-card-list-section
+  .money-manager-content
+  .money-manager-footer-action-section
+  .third-view-button,
+.pamm-section
+  .money-manager-card-list-section
+  .money-manager-content
+  .money-manager-footer-action-section
+  button {
+  width: 100%;
+}
+.pamm-section .money-manager-footer-action-section .skyblue {
+  background-color: #d7ecd9;
+  border: 0;
+  border-radius: 0 0 0 10px;
+  color: #3d972f;
+  font-weight: 700;
+  height: 35px;
+  outline: 0;
+}
+.pamm-section .money-manager-footer-action-section .third-view-button {
+  align-items: center;
+  background-color: #bfbfbf69;
+  border-radius: 0 0 10px 0;
+  color: #555555 !important;
+  display: flex;
+  font-weight: 700;
+  justify-content: center;
+  width: 100%;
+}
+.pamm-section
+  .money-manager-card-list-section
+  .money-manager-content
+  .money-manager-footer-action-section
+  button.danger {
+  background-color: #ebd7d7;
+  border: 0;
+  border-radius: 0 0 0 10px;
+  color: #972f2f;
+  font-weight: 700;
+  height: 35px;
+  outline: 0;
+}
+.pamm-section
+  .money-manager-card-list-section
+  .money-manager-content
+  .money-manager-footer-action-section
+  button.success {
+  background-color: #d7ecd9;
+  border: 0;
+  /* border-radius: 0 0 10px 0; */
+  color: #3d972f;
+  font-weight: 700;
+  height: 35px;
+  outline: 0;
+}
+.pamm-section
+  .money-manager-card-list-section
+  .money-manager-content
+  .money-manager-body-section
+  .money-manager-body-content-element.marge-element
+  div:nth-child(2)
+  img {
+  width: 40px;
+}
+.pamm-section
+  .money-manager-card-list-section
+  .money-manager-content
+  .money-manager-body-section
+  .money-manager-body-content-element.marge-element:last-child {
+  border-bottom: 0;
+}
+.pamm-section .loader-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+}
+.pamm-section .myportfolio-card-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.pamm-section .myportfolio-card-section .myportfolio-card-content {
+  background-color: #f3fdff;
+  border-radius: 10px;
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%),
+    0 1px 5px 0 rgb(0 0 0 / 20%);
+  margin-top: 10px;
+  width: auto;
+  min-width: 255px;
+}
+.myportfolio-card-section
+  .myportfolio-card-content
+  .width-100-with-border.header-sction {
+  background-color: #243a6f;
+  border-radius: 10px 10px 0 0;
+  color: #fff;
+}
+.myportfolio-card-section .myportfolio-card-content .width-100-with-border {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  display: flex;
+  gap: 70px;
+  justify-content: space-between;
+  padding: 15px;
+}
+.myportfolio-card-section .myportfolio-card-content .width-100-no-border div,
+.myportfolio-card-section .myportfolio-card-content .width-100-with-border div {
+  display: flex;
+  flex-direction: column;
+}
+.portfolio-link-color {
+  color: skyblue !important;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.myportfolio-card-section
+  .myportfolio-card-content
+  .width-100-no-border
+  .text-bold-700,
+.myportfolio-card-section
+  .myportfolio-card-content
+  .width-100-with-border
+  .text-bold-700 {
+  font-weight: 700;
+}
+.myportfolio-card-section .myportfolio-card-content .footer-action-button {
+  display: flex;
+}
+.myportfolio-card-section
+  .myportfolio-card-content
+  .footer-action-button
+  button:first-child {
+  background-color: #ebd7d7;
+  border: 0;
+  border-radius: 0 0 0 10px;
+  color: #972f2f;
+  font-weight: 700;
+  height: 35px;
+  outline: 0;
+  width: 100%;
+}
+.myportfolio-card-section
+  .myportfolio-card-content
+  .footer-action-button
+  button:nth-child(2) {
+  background-color: #d7ecd9;
+  border: 0;
+  border-radius: 0 0 0 0;
+  color: #3d972f;
+  font-weight: 700;
+  height: 35px;
+  outline: 0;
+  width: 100%;
+}
+.myportfolio-card-section
+  .myportfolio-card-content
+  .footer-action-button
+  .third-view-button {
+  align-items: center;
+  background-color: #bfbfbf69;
+  border-radius: 0 0 10px 0;
+  color: #555555;
+  display: flex;
+  font-weight: 700;
+  justify-content: center;
+  width: 100%;
+}
+.myportfolio-card-section .myportfolio-card-content .footer-action-button {
+  display: flex;
+}
+.spanportFolio1 {
+  align-items: center;
+  border-radius: 0 0 0 10px;
+  display: flex;
+  height: 35px;
+  justify-content: center;
+  width: 100%;
+}
+.pamm-create-my-portfolio-button {
+  display: flex;
+  justify-content: end;
+}
+.myportfolio-card-section
+  .myportfolio-card-content
+  .footer-action-button
+  button:first-child:hover {
+  background-color: #e2c6c6;
+}
+.myportfolio-card-section
+  .myportfolio-card-content
+  .footer-action-button
+  button:nth-child(2):hover {
+  background-color: #bddec0;
+}
+.myportfolio-card-section
+  .myportfolio-card-content
+  .footer-action-button
+  .third-view-button:hover {
+  background-color: #dadada94;
+}
+.money-manager-card-list-section
+  .money-manager-content
+  .money-manager-footer-action-section
+  button.danger:hover {
+  background-color: #e2c6c6;
+}
+.money-manager-card-list-section
+  .money-manager-content
+  .money-manager-footer-action-section
+  button.success:hover {
+  background-color: #bddec0;
+}
+.money-manager-footer-action-section .third-view-button:hover {
+  background-color: #dadada94;
+}
+.approvedocument {
+  font-size: 15px;
+  color: white;
+  padding: 0px 6px;
+  border-radius: 5px;
+  margin: auto 0px;
+}
+
+.approvedocument.approve {
+  background: green;
+}
+.approvedocument.rejected {
+  background: red;
+}
+
+.approvedocument.padding {
+  background: #c1c103;
+}
+.marcheckbox {
+  margin: 3px 8px 3px 0;
+}
+.MuiMenuItem-root {
+  font-weight: 600;
+}
+.MuiSelect-select {
+  font-family: cairo, sans-serif !important;
+  font-weight: 600 !important;
+}
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .master-structure-section .user-links .user-link-header,
+  .master-structure-section .user-links .user-link-body {
+    grid-template-columns: 70px auto !important;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 1225px) {
+  .partnership-main-section .master-structure-section {
+    width: 100% !important;
+    min-width: unset !important;
+  }
+  .bankDetailsTabSection.getMyStructure
+    .partnership-section
+    .master-structure-section {
+    min-width: unset !important;
+  }
+  .ib-structure.view-commission-content-section .main-section,
+  .ib-structure.view-commission-content-section .pair-section .pair-data {
+    flex-wrap: wrap;
+  }
+  .ib-structure.view-commission-content-section .main-section input,
+  .ib-structure.view-commission-content-section .pair-data .pair-data-title {
+    min-width: 63px !important;
+    width: 63px !important;
+  }
+  .ib-structure.view-commission-content-section .pair-section {
+    padding: 10px 0;
+  }
+  .ib-structure.view-commission-content-section .main-section input {
+    width: 100% !important;
+  }
+  .ib-structure.view-commission-content-section .pair-data input {
+    width: 55px !important;
+    margin-top: 0;
+  }
+  .ib-structure.view-commission-content-section .pair-data div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+  }
+  .ib-structure.view-commission-content-section .pair-section .pair-data {
+    align-items: flex-start;
+  }
+  .ib-structure.view-commission-content-section
+    .group-structure-section
+    .main-section
+    .main-section-input-element
+    div:last-child {
+    /* width: 146px; */
+  }
+  .ib-structure.view-commission-content-section
+    .group-structure-section
+    .main-section
+    .action-section
+    span {
+    margin-top: 12px;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 600px) {
+  .bankDetailsTabSection.pamm-section .groupButtonSection .MuiButtonGroup-root {
+    padding: 5px 0;
+    overflow: auto;
+  }
+  .bankDetailsTabSection.pamm-section
+    .groupButtonSection
+    .MuiButtonGroup-root
+    button {
+    min-width: 100px;
+  }
+  .MuiGrid-container.justify-content-center {
+    gap: 0 !important;
+  }
+  .text-dark.font-size-xs.d-flex.justify-content-between.align-items-center {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 425px) {
+  .margeField {
+    gap: 0 !important;
+    flex-wrap: wrap !important;
+  }
+  .referrals_structure_dropdown {
+    width: 100% !important;
+  }
+}
+.padingbutton {
+  background-color: #ebe5c1;
+  border: 0;
+  border-radius: 0 0 0 10px;
+  color: #af843a;
+  font-weight: 700;
+  height: 35px;
+  outline: 0;
+}
+.tableforriskscroe table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tableforriskscroe th,
+.tableforriskscroe td {
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.tableforriskscroe tr:hover {
+  background-color: #d7ecd9;
+}
+.statementdate {
+  gap: 10px;
+  display: flex;
+  padding-left: 16px;
+  padding-top: 10px;
+}
+.btn-export-refer {
+  padding: 10px 50px !important ;
+  background: green !important;
+  color: white !important;
+  border-radius: 4px !important;
+}
+.option-textFild {
+  display: flex;
+  gap: 5px;
+  padding: 0.75rem 1.25rem;
+}
+@media screen and (max-width: 425px) {
+  .Accounts-groun-button button {
+    font-size: 8px !important;
+  }
+}
+.deposit-image-flex {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}

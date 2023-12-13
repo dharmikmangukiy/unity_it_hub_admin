@@ -1,0 +1,177 @@
+.main-heading {
+  font-weight: 700 !important;
+  width: 100% !important;
+  margin-bottom: 1.5rem !important;
+  font-size: 1.7rem;
+  line-height: 1.2;
+  font-family: cairo, sans-serif;
+}
+
+.ticket-file-upload {
+  border-radius: 10px;
+}
+.ticket-file-upload .deposit-upload-image-preview {
+  width: 100%;
+}
+.ticket-file-upload input[type="file"] {
+  display: none;
+}
+.ticket-file-upload .site-button-color {
+  background-color: #2a3f73;
+}
+.ticket-disabled-button {
+  height: 40px;
+  width: 110px;
+}
+.ticket-disabled-button svg {
+  height: 30px;
+  top: 30px;
+}
+.view-ticket .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.view-ticket .ticket-status {
+  color: #fff;
+  font-size: 1rem;
+  line-height: 22px;
+  float: right;
+  min-width: 3rem;
+  height: 22px;
+  margin-left: 14px;
+  padding: 0 6px;
+  background-color: #ffc107;
+  border-radius: 5px;
+}
+.action-section {
+  padding: 20px;
+}
+.action-section .input-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+.view-ticket.card-header {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+.action-section .send-message {
+  padding: 0 25px;
+}
+.font-size-18 {
+  font-size: 18px;
+}
+.view-ticket-page .content-area {
+  height: calc(100vh - 400px);
+  overflow-y: auto;
+}
+.view-ticket-page .chat {
+  display: flex;
+}
+.view-ticket-page .chat img {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+}
+.view-ticket-page .chat.right-side {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: 15px;
+}
+
+.view-ticket-page .chat P {
+  background-color: #2a3f73;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+.view-ticket-page .chat.right-side P::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 12px;
+  border-top: 5px solid transparent;
+  border-left: 10px solid #2a3f73;
+  border-bottom: 5px solid transparent;
+  right: -18px;
+  top: 12px;
+}
+.view-ticket-page .chat.left-side P::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 12px;
+  border-top: 5px solid transparent;
+  border-left: 10px solid #2a3f73;
+  border-bottom: 5px solid transparent;
+  left: -9px;
+  top: 6px;
+  transform: rotate(305deg);
+}
+.view-ticket-page .chat.left-side {
+  justify-content: flex-start;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.send-message-disabled-button {
+  width: 100px;
+  position: relative;
+}
+.send-message-disabled-button svg {
+  width: 30px;
+  margin-left: -15px;
+}
+.send-message-text-element {
+  width: 100%;
+  border-radius: 9px;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(206, 212, 218);
+  font-size: 16px;
+  padding: 8px 26px 8px 10px;
+  margin-top: 0px;
+  transition: border-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-family: Cairo, sans-serif;
+}
+.site-button-color {
+  height: 100%;
+}
+.view-ticket-page .chat .ticket-upload-image {
+  border-radius: 0px;
+}
+@media screen and (min-width: 320px) and (max-width: 600px) {
+  .action-section .input-section {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 448px) {
+  .view-ticket.card-header .font-size-18 {
+    font-size: 13px;
+  }
+}
+
+.error {
+  color: #d32f2f;
+  font-size: 0.75rem;
+  margin-top: 2px;
+}
+.view-ticket .ticket-close {
+  background-color: #ff0707;
+  border-radius: 5px;
+  color: #fff;
+  float: right;
+  font-size: 1rem;
+  height: 22px;
+  line-height: 22px;
+  margin-left: 14px;
+  min-width: 3rem;
+  padding: 0 6px;
+}

@@ -1,0 +1,39 @@
+.main-heading {
+    font-weight: 700!important;
+    width: 100%!important;
+    margin-bottom: 1.5rem!important;
+    font-size: 1.7rem;
+    line-height: 1.2;
+    font-family: cairo,sans-serif;
+}
+.status-text-approved {
+    color: #18c1a7;
+    font-weight: 500;
+}
+.status-text-rejected {
+    color: #f9326f;
+    font-weight: 500;
+}
+.status-text-pending {
+    color: #cfcf58;
+    font-weight: 600;
+}
+.view-ib-content-section .main-content-display .display-element {
+    flex-direction: row;
+    gap: 5px;
+    word-break: break-word;
+}
+.view-ib-content-section .main-content-input .ib-structure.view-commission-content-section .group-structure-section:last-child {
+    display: block;
+}
+.autoComplete-input-remove-border input {
+    border: 0px !important;
+}
+@media screen and (min-width: 320px) and (max-width: 1270px) {
+    
+}
+@media screen and (min-width: 320px) and (max-width: 1000px) {
+    .view-ib-content-section .main-content-display .display-element {
+        width: 100% !important;
+    }
+}

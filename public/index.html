@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description"
+    content="Unity IT hub is a global leader in forex broker offering forex trading, indices, commodities, tight spreads, stocks, and 24 hour live support. Our online forex trading platforms and apps are available on web, desktop and mobile." />
+  <base href="%PUBLIC_URL%/">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.png" />
+  <!-- start login page -->
+  <link rel="stylesheet"
+    data-href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&amp;display=swap"
+    data-optimized-fonts="true">
+  <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/custom.css?2">
+  <!-- <link rel="stylesheet" href="%PUBLIC_URL%/Unity IT hub_login_files/regiter.css"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- <link rel="stylesheet"
+    data-href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&amp;display=swap"
+    data-optimized-fonts="true"> -->
+  <!-- <link rel="stylesheet"
+    data-href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&amp;display=swap"
+    data-optimized-fonts="true"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+    integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script type="text/babel" src="https://rouninmedia.github.io/axe/axe.js"></script>
+  <!-- <link rel="preload" href="./Unity IT hub_login_files/2.css" as="style">
+  <link rel="stylesheet" href="./Unity IT hub_login_files/2.css" data-n-g=""> -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!-- sidebar -->
+
+  <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+  <title>Unity IT hub</title>
+  <script crossorigin src="..."></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BZ96MCELTM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-BZ96MCELTM');
+  </script>
+  <!-- <script src="//code.tidio.co/moflpqn2jpw9gqmuwrpaszobzq8q0zwp.js" async></script> -->
+  <script type="text/babel">
+    // Single Page Apps for GitHub Pages
+    // MIT License
+    // https://github.com/rafgraph/spa-github-pages
+    // This script checks to see if a redirect is present in the query string,
+    // converts it back into the correct url and adds it to the
+    // browser's history using window.history.replaceState(...),
+    // which won't cause the browser to attempt to load the new url.
+    // When the single page app is loaded further down in this file,
+    // the correct url will be waiting in the browser's history for
+    // the single page app to route accordingly.
+    (function (l) {
+      if (l.search[1] === '/') {
+        var decoded = l.search.slice(1).split('&').map(function (s) {
+          return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+          l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    }(window.location))
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" data-react-helmet="true"></script>
+
+  <script type="text/javascript">
+    var websocketurl1 = "https://nexaexch.net:2053/";
+    // client = io(websocketurl1);
+    // client.on("connect", function (data) { });
+    // client.on('playSound1', function () {
+    //   var audio = document.getElementById("audioD");
+    //   audio.play();
+    // }
+    // )
+    // client.on('playSoundW', function () {
+    //   var audio = document.getElementById("audioWITHDREW");
+    //   audio.play();
+    // }
+    // )
+    // client.on('playSoundI', function () {
+    //   var audio = document.getElementById("audioINETENAL");
+    //   audio.play();
+    // }
+
+    // )
+    // client.on('playSoundIB', function () {
+    //   var audio = document.getElementById("audioIB");
+    //   audio.play();
+    // }
+
+    // )
+    // client.on('playSoundKyc', function () {
+    //   var audio = document.getElementById("audioKyc");
+    //   audio.play();
+    // })
+  </script>
+  <script>
+    var today = new Date();
+
+    var dateInput = document.getElementById("myDateInput");
+    var year = today.getFullYear();
+    var month = String(today.getMonth() + 1).padStart(2, '0');
+    var day = String(today.getDate()).padStart(2, '0');
+    // Set the desired minimum date value
+    var minDate = year + '-' + month + '-' + day; // Replace with your desired minimum date
+
+    // Set the min attribute of the input field
+    dateInput.min = minDate;
+    // min
+  </script>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <audio id="audioWITHDREW" allow="autoplay" src="%PUBLIC_URL%/assets/audio/927.wav"></audio>
+  <audio id="audioD" allow="autoplay" src="%PUBLIC_URL%/assets/audio/depositcoin.wav"></audio>
+  <audio id="audioIB" allow="autoplay" src="%PUBLIC_URL%/assets/audio/ibwithdraw.wav"></audio>
+  <audio id="audioINETENAL" allow="autoplay" src="%PUBLIC_URL%/assets/audio/internal-tranfer.wav"></audio>
+  <audio id="audioKyc" allow="autoplay" src="%PUBLIC_URL%/assets/audio/kyc.wav"></audio>
+
+
+  <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+</body>
+
+</html>

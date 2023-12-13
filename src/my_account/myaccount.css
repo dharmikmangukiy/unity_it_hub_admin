@@ -1,0 +1,107 @@
+.fromSection {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.inputSection {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.buttonSection {
+    display: flex;
+    justify-content: end;
+}
+.fromSection .inputSection .element label.Mui-focused {
+    opacity: 0;
+}
+.fromSection .inputSection .element div.MuiOutlinedInput-root.Mui-focused {
+    box-shadow: none;
+}
+.fromSection .inputSection .element fieldset {
+    border-color: #c4c4c4;
+}
+.fromSection .inputSection .element fieldset legend {
+    line-height: 13px;
+}
+.fromSection .inputSection .element fieldset legend span {
+    opacity: 1;
+}
+.referal-links-section {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.referal-links-section .referal-link-element .title {
+    margin-bottom: 0;
+    font-weight: 600;
+}
+.referal-links-section .referal-link-element .content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.referal-links-section .referal-link-element .content span {
+    color: #6aaaf8;
+    font-size: 14px;
+}
+.referal-links-section .referal-link-element .content button {
+    width: 30px;
+    height: 22px;
+}
+.referal-links-section .referal-link-element .content button span {
+    color: #807f7f;
+}
+.padding-0px {
+    padding: 0px !important;
+}
+.from-section {
+    padding: 15px;
+}
+.from-section .input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.from-section .input-section .full-section{
+    display: grid;
+}
+.from-section .input-section .full-section .element .margeIcon {
+    display: flex;
+    align-items: center;
+}
+.from-section .input-section .full-section .element .margeIcon button {
+    width: 20px;
+    height: 20px;
+}
+.from-section .input-section .full-section .element .margeIcon button span {
+    color: #757575;
+}
+.from-section .input-section .full-section:nth-child(1){
+    grid-template-columns: 40% auto;
+}
+.from-section .input-section .full-section:nth-child(2){
+    grid-template-columns: 40% 30% auto;
+}
+.from-section .input-section .full-section:nth-child(3){
+    grid-template-columns: 50% auto;
+}
+.from-section .input-section .full-section .element {
+    display: flex;
+    flex-direction: column;
+}
+.from-section .input-section .full-section .element label {
+    font-weight: 600;
+}
+.from-section .input-section .full-section .element span {
+    font-size: 14px;
+    color: #879ef7;
+}
+.changePasswordSection .element label.Mui-focused {
+    color: #b1b1b1;
+}
+.changePasswordSection .element div.Mui-focused::after {
+    border-bottom: 1px solid #949494;
+}

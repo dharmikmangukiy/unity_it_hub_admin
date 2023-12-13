@@ -1,0 +1,57 @@
+.scriptmasterTextFild {
+  display: grid;
+  grid-template-columns: 24% 24% 24% 24%;
+  gap: 15px;
+}
+
+@media screen and (min-width: 660px) and (max-width: 893px) {
+  .scriptmasterTextFild {
+    grid-template-columns: 32% 32% 32%;
+    /* gap: 2%; */
+  }
+}
+@media screen and (min-width: 500px) and (max-width: 660px) {
+  .scriptmasterTextFild {
+    grid-template-columns: 49% 49%;
+    /* gap: 2%; */
+  }
+}
+@media screen and (min-width: 250px) and (max-width: 500px) {
+  .scriptmasterTextFild {
+    grid-template-columns: 98%;
+    /* gap: 2%; */
+  }
+}
+/* @media screen and (max-width: 575px) {
+  .scriptmasterTextFild {
+    padding: 0 15px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .scriptmasterTextFild {
+    padding: 0 15px;
+  }
+} */
+
+.closeHovertable tr:hover {
+  background-color: white;
+}
+.sript-image {
+  /* border: 1px dotted; */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.remove-script-image {
+  position: absolute;
+  top: -9px;
+  right: -10px;
+  background: red;
+  border-radius: 15px;
+  color: white;
+  font-size: 20px;
+}
+.scriptimgwidth {
+  width: 200px !important;
+}
