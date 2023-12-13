@@ -487,7 +487,7 @@ const Setting = (prop) => {
                             </div>
                           </div>
                           <br />
-                          <div>
+                          {/* <div>
                             <div className="subTitle-setting">Spin And Win</div>
                             <div className="scriptmasterTextFild">
                               {arrayData.spin.map((item, index) => {
@@ -566,11 +566,7 @@ const Setting = (prop) => {
                                               }
                                               alt=""
                                             />
-                                            {/* <span>
-                                      {arrayData.deposit.gpay_image
-                                        ? arrayData.deposit.gpay_image.name
-                                        : ""}
-                                    </span> */}
+                                       
                                           </div>
                                         </div>
                                       )}
@@ -624,7 +620,7 @@ const Setting = (prop) => {
                               })}
                             </div>
                           </div>
-                          <br />
+                          <br />  */}
                           <div>
                             <div className="subTitle-setting">Deposit</div>
                             <div className="scriptmasterTextFild">
@@ -704,11 +700,7 @@ const Setting = (prop) => {
                                             }
                                             alt=""
                                           />
-                                          {/* <span>
-                                      {arrayData.deposit.gpay_image
-                                        ? arrayData.deposit.gpay_image.name
-                                        : ""}
-                                    </span> */}
+                                      
                                         </div>
                                       </div>
                                     )}

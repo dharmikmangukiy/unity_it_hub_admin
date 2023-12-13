@@ -139,11 +139,11 @@ const CommisionGroup = (prop) => {
       value: false,
       name: "group_name",
     },
-    {
-      label: "MT5 GROUP NAME",
-      value: false,
-      name: "ib_mt5group_name",
-    },
+    // {
+    //   label: "MT5 GROUP NAME",
+    //   value: false,
+    //   name: "ib_mt5group_name",
+    // },
     {
       label: "COMMISSION",
       value: false,
@@ -188,16 +188,16 @@ const CommisionGroup = (prop) => {
       grow: 0.1,
       // wrap: true,
     },
-    {
-      name: "MT5 GROUP NAME",
-      selector: (row) => {
-        return <span title={row.group_name}>{row.ib_mt5group_name}</span>;
-      },
-      sortable: true,
-      reorder: true,
-      grow: 1,
-      // wrap: true,
-    },
+    // {
+    //   name: "MT5 GROUP NAME",
+    //   selector: (row) => {
+    //     return <span title={row.group_name}>{row.ib_mt5group_name}</span>;
+    //   },
+    //   sortable: true,
+    //   reorder: true,
+    //   grow: 1,
+    //   // wrap: true,
+    // },
 
     {
       name: "COMMISSION",

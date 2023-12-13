@@ -9,5 +9,5 @@ const ClientUrl = "https://demo.unityithub.com";
 //   ,
 // };
 const UserInfo = {};
-const IsApprove = "";
+// const IsApprove = "";
 export { Url, ClientUrl, IsApprove, UserInfo };
