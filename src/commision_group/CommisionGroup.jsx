@@ -940,7 +940,7 @@ const CommisionGroup = (prop) => {
                 </Select>
               </FormControl>
             </div>
-            <div className="view-content-element">
+            {/* <div className="view-content-element">
               <TextField
                 label="MT5 Group Name"
                 variant="standard"
@@ -959,7 +959,7 @@ const CommisionGroup = (prop) => {
                 }
                 value={form.ib_mt5group_name}
                 onChange={input}
-              />
+              /> */}
               {/* <FormControl variant="standard" sx={{ width: "100%" }}>
               <InputLabel>MT5 Group Name</InputLabel>
               <Select
@@ -975,7 +975,7 @@ const CommisionGroup = (prop) => {
               {/* <MenuItem value="0">Demo</MenuItem> */}
               {/* </Select>
             </FormControl> */}
-            </div>
+            {/* </div> */}
             <div className="view-content-element">
               <TextField
                 label="Execution"

@@ -319,16 +319,16 @@ const App = () => {
                     path="/affiliate"
                     element={<AffiliateList permission={permission} />}
                   />
-                  <Route
+                  {/* <Route
                     exact
                     path="/trade_and_win"
                     element={<TradeAndWin permission={permission} />}
-                  />
-                  <Route
+                  /> */}
+                  {/* <Route
                     exact
                     path="/spin_list"
                     element={<SpinList permission={permission} />}
-                  />
+                  /> */}
                   <Route
                     exact
                     path="/fantastic_four_list"
@@ -383,11 +383,11 @@ const App = () => {
                     element={<Notification />}
                   />
                   <Route exact path="/activity_log" element={<ActivityLog />} />
-                  <Route
+                  {/* <Route
                     exact
                     path="/faq_editor"
                     element={<FAQEditor permission={permission} />}
-                  />
+                  /> */}
                   <Route
                     exact
                     path="/ib_withdraw"
@@ -415,7 +415,7 @@ const App = () => {
                     path="/total_credit_out_report"
                     element={<TotalCreditOutReport />}
                   />
-                  <Route exact path="/refresh_data" element={<RefreshData />} />
+                  {/* <Route exact path="/refresh_data" element={<RefreshData />} /> */}
                   <Route
                     exact
                     path="/ib_withdraw"
@@ -641,11 +641,11 @@ const App = () => {
                     path="/LeverageChange"
                     element={<LeverageChange permission={permission} />}
                   />
-                  <Route
+                  {/* <Route
                     exact
                     path="/TradeWinMaster"
                     element={<TradeWinMaster permission={permission} />}
-                  />
+                  /> */}
                   <Route
                     exact
                     path="/script_master_list"

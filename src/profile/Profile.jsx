@@ -252,6 +252,7 @@ const Profile = (prop12) => {
     nationality: "",
     country_of_residence: "",
     city: "",
+    state:"",
     address: "",
     address_2: "",
     gender: "",
@@ -11029,6 +11030,7 @@ const Profile = (prop12) => {
       param.append("user_nationality", profileForm.nationality);
       param.append("user_country", profileForm.country_of_residence);
       param.append("user_city", profileForm.city);
+      param.append("user_state", profileForm.state);
       param.append("user_address_1", profileForm.address);
       param.append("user_address_2", profileForm.address_2);
       param.append("user_gender", profileForm.gender);
@@ -12344,6 +12346,7 @@ const Profile = (prop12) => {
             nationality: res.data.data.user_nationality,
             country_of_residence: res.data.data.user_country,
             city: res.data.data.user_city,
+            state: res.data.data.user_state,
             address: res.data.data.user_address_1,
             address_2: res.data.data.user_address_2,
             gender: res.data.data.user_gender,
@@ -13564,6 +13567,22 @@ const Profile = (prop12) => {
                                           : true
                                       }
                                       name="city"
+                                      onChange={profileInput}
+                                    />
+                                  </div>
+                                  <div className="element">
+                                    <TextField
+                                      className="input-font-small"
+                                      label="State"
+                                      variant="standard"
+                                      focused
+                                      value={profileForm.state}
+                                      disabled={
+                                        permission.update_basic_information == 1
+                                          ? false
+                                          : true
+                                      }
+                                      name="state"
                                       onChange={profileInput}
                                     />
                                   </div>
