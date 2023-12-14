@@ -314,11 +314,11 @@ const App = () => {
                     path="/additional_documents"
                     element={<AdditionalDocument permission={permission} />}
                   />
-                  <Route
+                 {/* <Route
                     exact
                     path="/affiliate"
                     element={<AffiliateList permission={permission} />}
-                  />
+                  />*/}
                   {/* <Route
                     exact
                     path="/trade_and_win"

@@ -4,10 +4,10 @@ const ClientUrl = "https://demo.unityithub.com";
 //   is_app: "1",
 //   AADMIN_LOGIN_ID: "14",
 //   AADMIN_LOGIN_ROLE_ID: "1",
-//   AADMIN_AUTH_KEY:"d88918-54529e-48df8f"
+//   AADMIN_AUTH_KEY:"6d89a6-79a2b4-8198f2"
 
 //   ,
 // };
 const UserInfo = {};
-// const IsApprove = "";
+const IsApprove = "";
 export { Url, ClientUrl, IsApprove, UserInfo };

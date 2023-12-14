@@ -1036,7 +1036,7 @@ const Dashboard = (prop) => {
                                     }
                                   </label>
                                 </div>
-                                <div className="th-div td-div">
+                                {/* <div className="th-div td-div">
                                   <div>Affiliate Request</div>
 
                                   <label>
@@ -1057,7 +1057,7 @@ const Dashboard = (prop) => {
                                         .affiliate_appoved_request
                                     }
                                   </label>
-                                </div>
+                                </div> */}
                               </div>
                             </Grid>
                           </Grid>
