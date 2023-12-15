@@ -14272,7 +14272,7 @@ const Profile = (prop12) => {
                                   ""
                                 )}
 
-                                {/* <div className="mt5btngroup">
+                                <div className="mt5btngroup">
                                   {permission.update_is_pamm == 1 ? (
                                     <Button
                                       variant="contained"
@@ -14284,7 +14284,7 @@ const Profile = (prop12) => {
                                   ) : (
                                     ""
                                   )}
-                                </div> */}
+                                </div>
 
                                 {permission.add_new_notes == 1 ||
                                 permission.add_user_bank == 1 ||

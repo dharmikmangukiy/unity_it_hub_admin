@@ -2123,7 +2123,7 @@ const ClientList = (prop) => {
               }}
             />
           </div>
-          {/* <div className="input-access-element">
+          <div className="input-access-element">
             <label>Pamm Invest Access</label>
             <Switch
               checked={
@@ -2139,8 +2139,8 @@ const ClientList = (prop) => {
                 setTransactionAccessData({ ...transactionAccessData });
               }}
             />
-          </div> */}
-          {/* <div className="input-access-element">
+          </div>
+          <div className="input-access-element">
             <label>Pamm Withdraw Access</label>
             <Switch
               checked={
@@ -2156,7 +2156,7 @@ const ClientList = (prop) => {
                 setTransactionAccessData({ ...transactionAccessData });
               }}
             />
-          </div> */}
+          </div>
           <div className="input-access-element">
             <label>Transfer Access</label>
             <Switch
