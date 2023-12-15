@@ -217,7 +217,18 @@ const PammUser = (prop) => {
     {
       name: "USER NAME",
       selector: (row) => {
-        return <span title={row.name}>{row.name}</span>;
+        return(
+          <a
+          className="linkColor"
+          title={row.name}
+          href={"/profile/" + row.user_id}
+          target="_blank"
+        >
+          {row.name}
+        </a>
+        )
+        
+        // <span title={row.name}>{row.name}</span>;
       },
       // wrap: true,
       sortable: true,

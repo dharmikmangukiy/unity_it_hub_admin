@@ -2356,12 +2356,19 @@ const Profile = (prop12) => {
     {
       name: "Approved Date",
       selector: (row) => {
-        return (
-          <span title={row.approved_datetime}>
-            <NewDate newDate={row.approved_datetime} />
-          </span>
-        );
-      },
+        console.log(row);
+    
+        if (row.approved_datetime) {
+            return (
+                <span title={row.approved_datetime}>
+                    <NewDate newDate={row.approved_datetime} />
+                </span>
+            );
+        } else {
+            return null; 
+        }
+    },
+    
       sortable: true,
       reorder: true,
       grow: 1,
