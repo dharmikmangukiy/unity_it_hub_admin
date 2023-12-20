@@ -7,10 +7,14 @@ import {
   DialogContent,
   DialogTitle,
   FormControl,
+  FormControlLabel,
+  FormLabel,
   Grid,
   Menu,
   MenuItem,
   Paper,
+  Radio,
+  RadioGroup,
   Select,
   TextField,
 } from "@mui/material";
@@ -35,6 +39,9 @@ const ListRequest = () => {
   const [openModel, setOpenModel] = useState(false);
   const [isDefaultStructure, setIsDefaultStructure] = useState(true);
   const [resData, setResData] = useState({});
+  const [value, setValue] = React.useState();
+  const [OptionState, setOptionState] = useState();
+
   const [updateDate, setUpdateDate] = useState({
     structure_id: "",
     sponsor_approve: "",
@@ -358,6 +365,8 @@ const ListRequest = () => {
           if (res.data.status == "error") {
             toast.error(res.data.message);
           } else {
+            setOptionState(res.data.fixed_structure_list);
+
             setIsDefaultStructure(true);
             updateDate.structure_data = res.data.data;
             if (res.data.structure_id) {
@@ -414,6 +423,32 @@ const ListRequest = () => {
           }
         });
     } else {
+      const param = new FormData();
+      if (IsApprove !== "") {
+        param.append("AADMIN_AUTH_KEY", IsApprove.AADMIN_AUTH_KEY);
+        param.append("is_app", IsApprove.is_app);
+        param.append("AADMIN_LOGIN_ID", IsApprove.AADMIN_LOGIN_ID);
+        param.append("role_id", IsApprove.AADMIN_LOGIN_ROLE_ID);
+      }
+      param.append("action", "get_default_structure");
+      param.append("user_id", prop.requested_user_id);
+      await axios
+        .post(`${Url}/ajaxfiles/structures_manage.php`, param)
+        .then((res) => {
+          if (res.data.message == "Session has been expired") {
+            toast.error(res.data.message);
+            localStorage.setItem("login", true);
+            navigate("/");
+            return;
+          }
+
+          if (res.data.status == "error") {
+            toast.error(res.data.message);
+          } else {
+            setOptionState(res.data.fixed_structure_list);
+            setOpenModel(true);
+          }
+        });
       setOpenModel(true);
     }
     /* const param = new FormData();
@@ -479,6 +514,7 @@ const ListRequest = () => {
   //   }
   // };
   toast.configure();
+  console.log(updateDate);
   const updatePartnership = async () => {
     // if (updateDate.structure_data.length > 0) {
     //   if (updateDate.structure_name == "") {
@@ -551,15 +587,23 @@ const ListRequest = () => {
         param.append("AADMIN_LOGIN_ID", IsApprove.AADMIN_LOGIN_ID);
         param.append("role_id", IsApprove.AADMIN_LOGIN_ROLE_ID);
       }
+
       param.append("requested_user_id", ibdata.requested_user_id);
       param.append("ib_application_id", ibdata.ib_application_id);
       param.append("remarks", updateDate.remarks);
+      param.append("commission_type", value);
+
       // param.append('sponsor_approve', updateDate.sponsor_approve);
       param.append("admin_approve", updateDate.admin_approve);
       param.append("structure_name", updateDate.structure_name);
       if (updateDate.structure_id) {
         param.append("structure_id", updateDate.structure_id);
         param.append("action", "update_master_structure");
+      }
+      if (value == "fixed") {
+        param.append("structure_id", updateDate.structure_name);
+        param.append("admin_approve", updateDate.admin_approve);
+        param.append("remarks", updateDate.remarks);
       }
       if (updateDate.structure_id == "") {
         param.append("action", "insert_master_structure");
@@ -648,6 +692,10 @@ const ListRequest = () => {
     setOpenTableMenus(tableMenus);
   };
 
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+  console.log(updateDate);
   return (
     <div>
       <div className="app-content--inner">
@@ -716,122 +764,146 @@ const ListRequest = () => {
                 />
               </DialogTitle>
               <DialogContent className="view-ib-content-section">
-                <Grid container spacing={1}>
-                  <div>
-                    <div
-                      className="main-content-display"
-                      style={{
-                        borderBottom: "1px solid gray",
-                        paddingBottom: "18px",
-                        marginBottom: "11px",
-                      }}
-                    >
-                      <div className="display-element">
-                        <h6>User Name</h6>
-                        <div>{ibdata.requested_user_name}</div>
-                      </div>
-                      <div className="display-element">
-                        <h6>DATE</h6>
-                        <div>{ibdata.date}</div>
-                      </div>
-                      <div className="display-element">
-                        <h6>ACQUIRE CLIENT</h6>
-                        <div>{ibdata.acquire_client}</div>
-                      </div>
-                      <div className="display-element">
-                        <h6>COUNTRY</h6>
-                        <div>{ibdata.countries}</div>
-                      </div>
-                      <div className="display-element">
-                        <h6>EMAIL</h6>
-                        <div>{ibdata.user_email}</div>
-                      </div>
-                      <div className="display-element">
-                        <h6>Sponsor Name</h6>
-                        <div>{ibdata.sponsor_name}</div>
-                      </div>
-                      <div className="display-element">
-                        <h6>STRUCTURE NAME</h6>
-                        <div>{ibdata.structure_name}</div>
-                      </div>
-                      <div className="display-element">
-                        <h6>REFFEERED</h6>
-                        <div>{ibdata.is_reffered == "0" ? "NO" : "YES"}</div>
-                      </div>
-                      <div className="display-element">
-                        <h6>WEBSITE</h6>
-                        <div>{ibdata.is_website == "0" ? "NO" : "YES"}</div>
-                      </div>
-                      <div className="display-element">
-                        <h6>WEBSITE URL</h6>
-                        <div>{ibdata.website_url}</div>
-                      </div>
-                      <div className="display-element">
-                        <h6>REMARK</h6>
-                        <div>{ibdata.remarks}</div>
-                      </div>
-                      <div className="display-element">
-                        <h6>IB APPROVE</h6>
-                        <div
-                          className={`col s12 text-color-${
-                            ibdata.sponsor_approve == "1"
-                              ? "green"
+                <FormControl>
+                  <FormLabel id="demo-controlled-radio-buttons-group">
+                    <b>Select IB</b>
+                  </FormLabel>
+                  <RadioGroup
+                    style={{ display: "unset", padding: "0px 0 18px 0" }}
+                    aria-labelledby="demo-controlled-radio-buttons-group"
+                    name="controlled-radio-buttons-group"
+                    value={value}
+                    onChange={handleChange}
+                  >
+                    <FormControlLabel
+                      value="manual"
+                      control={<Radio />}
+                      label="Manual"
+                    />
+                    <FormControlLabel
+                      value="fixed"
+                      control={<Radio />}
+                      label="Fixed"
+                    />
+                  </RadioGroup>
+                </FormControl>
+                {value === "manual" && (
+                  <Grid container spacing={1}>
+                    <div>
+                      <div
+                        className="main-content-display"
+                        style={{
+                          borderBottom: "1px solid gray",
+                          paddingBottom: "18px",
+                          marginBottom: "11px",
+                        }}
+                      >
+                        <div className="display-element">
+                          <h6>User Name</h6>
+                          <div>{ibdata.requested_user_name}</div>
+                        </div>
+                        <div className="display-element">
+                          <h6>DATE</h6>
+                          <div>{ibdata.date}</div>
+                        </div>
+                        <div className="display-element">
+                          <h6>ACQUIRE CLIENT</h6>
+                          <div>{ibdata.acquire_client}</div>
+                        </div>
+                        <div className="display-element">
+                          <h6>COUNTRY</h6>
+                          <div>{ibdata.countries}</div>
+                        </div>
+                        <div className="display-element">
+                          <h6>EMAIL</h6>
+                          <div>{ibdata.user_email}</div>
+                        </div>
+                        <div className="display-element">
+                          <h6>Sponsor Name</h6>
+                          <div>{ibdata.sponsor_name}</div>
+                        </div>
+                        <div className="display-element">
+                          <h6>STRUCTURE NAME</h6>
+                          <div>{ibdata.structure_name}</div>
+                        </div>
+                        <div className="display-element">
+                          <h6>REFFEERED</h6>
+                          <div>{ibdata.is_reffered == "0" ? "NO" : "YES"}</div>
+                        </div>
+                        <div className="display-element">
+                          <h6>WEBSITE</h6>
+                          <div>{ibdata.is_website == "0" ? "NO" : "YES"}</div>
+                        </div>
+                        <div className="display-element">
+                          <h6>WEBSITE URL</h6>
+                          <div>{ibdata.website_url}</div>
+                        </div>
+                        <div className="display-element">
+                          <h6>REMARK</h6>
+                          <div>{ibdata.remarks}</div>
+                        </div>
+                        <div className="display-element">
+                          <h6>IB APPROVE</h6>
+                          <div
+                            className={`col s12 text-color-${
+                              ibdata.sponsor_approve == "1"
+                                ? "green"
+                                : ibdata.sponsor_approve == "2"
+                                ? "red"
+                                : "yellow"
+                            }`}
+                          >
+                            {ibdata.sponsor_approve == "1"
+                              ? "APPROVED"
                               : ibdata.sponsor_approve == "2"
-                              ? "red"
-                              : "yellow"
-                          }`}
-                        >
-                          {ibdata.sponsor_approve == "1"
-                            ? "APPROVED"
-                            : ibdata.sponsor_approve == "2"
-                            ? "REJECTED"
-                            : "PENDING"}
+                              ? "REJECTED"
+                              : "PENDING"}
+                          </div>
                         </div>
-                      </div>
-                      <div className="display-element">
-                        <h6>ADMIN APPROVE</h6>
-                        <div
-                          className={`col s12 text-color-${
-                            ibdata.admin_approve == "1"
-                              ? "green"
+                        <div className="display-element">
+                          <h6>ADMIN APPROVE</h6>
+                          <div
+                            className={`col s12 text-color-${
+                              ibdata.admin_approve == "1"
+                                ? "green"
+                                : ibdata.admin_approve == "2"
+                                ? "red"
+                                : "yellow"
+                            }`}
+                          >
+                            {ibdata.admin_approve == "1"
+                              ? "APPROVED"
                               : ibdata.admin_approve == "2"
-                              ? "red"
-                              : "yellow"
-                          }`}
-                        >
-                          {ibdata.admin_approve == "1"
-                            ? "APPROVED"
-                            : ibdata.admin_approve == "2"
-                            ? "REJECTED"
-                            : "PENDING"}
+                              ? "REJECTED"
+                              : "PENDING"}
+                          </div>
                         </div>
-                      </div>
-                      <div className="display-element">
-                        <h6>STATUS</h6>
-                        <div
-                          className={`col s12 text-color-${
-                            ibdata.status == "1"
-                              ? "green"
+                        <div className="display-element">
+                          <h6>STATUS</h6>
+                          <div
+                            className={`col s12 text-color-${
+                              ibdata.status == "1"
+                                ? "green"
+                                : ibdata.status == "2"
+                                ? "red"
+                                : "yellow"
+                            }`}
+                          >
+                            {ibdata.status == "1"
+                              ? "APPROVED"
                               : ibdata.status == "2"
-                              ? "red"
-                              : "yellow"
-                          }`}
-                        >
-                          {ibdata.status == "1"
-                            ? "APPROVED"
-                            : ibdata.status == "2"
-                            ? "REJECTED"
-                            : "PENDING"}
-                        </div>
-                      </div>{" "}
+                              ? "REJECTED"
+                              : "PENDING"}
+                          </div>
+                        </div>{" "}
+                      </div>
                     </div>
-                  </div>
-                  <div className="divider"></div>
-                  <div className="main-content-input">
-                    <div className="ib-structure view-commission-content-section">
-                      {ibdata.sponsor_id == "0" ? (
-                        <div style={{ width: "100%" }}>
-                          {/* <TextField
+                    <div className="divider"></div>
+                    <div className="main-content-input">
+                      <div className="ib-structure view-commission-content-section">
+                        {ibdata.sponsor_id == "0" ? (
+                          <div style={{ width: "100%" }}>
+                            {/* <TextField
                             label="Structure Name"
                             id="outlined-basic"
                             variant="outlined"
@@ -840,316 +912,323 @@ const ListRequest = () => {
                             value={updateDate.structure_name}
                             onChange={input01}
                           /> */}
-                          <label
-                            htmlFor="remarks"
-                            className="text-info font-weight-bold form-label-head w-100 mt-4 required"
-                          >
-                            Structure Name
-                          </label>
-                          <BootstrapInput
-                            name="structure_name"
-                            value={updateDate.structure_name}
-                            onChange={input01}
-                            displayEmpty
-                            inputProps={{
-                              "aria-label": "Without label",
-                            }}
-                          />
-                        </div>
-                      ) : (
-                        ""
-                      )}
+                            <label
+                              htmlFor="remarks"
+                              className="text-info font-weight-bold form-label-head w-100 mt-4 required"
+                            >
+                              Structure Name
+                            </label>
+                            <BootstrapInput
+                              name="structure_name"
+                              value={updateDate.structure_name}
+                              onChange={input01}
+                              displayEmpty
+                              inputProps={{
+                                "aria-label": "Without label",
+                              }}
+                            />
+                          </div>
+                        ) : (
+                          ""
+                        )}
 
-                      {updateDate.structure_data.map((item, index) => {
-                        return (
-                          <div className="group-structure-section">
-                            <div className="main-section">
-                              <div className="main-section-title">
-                                {item.ib_group_name}
-                              </div>
-                              <div className="main-section-input-element">
-                                <div>
-                                  <span>Rebate</span>
-                                  <input
-                                    type="text"
-                                    className="Rebate_amount"
-                                    placeholder="Rebate"
-                                    value={item.group_rebate}
-                                    disabled={!isDefaultStructure}
-                                    onChange={(e) => {
-                                      var floatNumber =
-                                        e.target.value.split(".");
-                                      if (!isNaN(Number(e.target.value))) {
-                                        if (
-                                          floatNumber.length == 1 ||
-                                          (floatNumber.length == 2 &&
-                                            floatNumber[1].length <= 3)
+                        {updateDate.structure_data?.map((item, index) => {
+                          return (
+                            <div className="group-structure-section">
+                              <div className="main-section">
+                                <div className="main-section-title">
+                                  {item.ib_group_name}
+                                </div>
+                                <div className="main-section-input-element">
+                                  <div>
+                                    <span>Rebate</span>
+                                    <input
+                                      type="text"
+                                      className="Rebate_amount"
+                                      placeholder="Rebate"
+                                      value={item.group_rebate}
+                                      disabled={!isDefaultStructure}
+                                      onChange={(e) => {
+                                        var floatNumber =
+                                          e.target.value.split(".");
+                                        if (!isNaN(Number(e.target.value))) {
+                                          if (
+                                            floatNumber.length == 1 ||
+                                            (floatNumber.length == 2 &&
+                                              floatNumber[1].length <= 3)
+                                          ) {
+                                            updateDate.structure_data[index][
+                                              "group_rebate"
+                                            ] = e.target.value;
+                                            updateDate.structure_data[index][
+                                              "pair_data"
+                                            ].forEach((value, valueIndex) => {
+                                              if (
+                                                updateDate.structure_data[index]
+                                                  .pair_data[valueIndex]
+                                                  .pair_name == "crypto" ||
+                                                updateDate.structure_data[index]
+                                                  .pair_data[valueIndex]
+                                                  .pair_name == "indices"
+                                              ) {
+                                              } else {
+                                                updateDate.structure_data[
+                                                  index
+                                                ]["pair_data"][valueIndex][
+                                                  "rebate"
+                                                ] = e.target.value;
+                                              }
+                                            });
+                                            setUpdateDate({
+                                              ...updateDate,
+                                            });
+                                          }
+                                        } else if (
+                                          e.target.value == "" ||
+                                          e.target.value == 0
                                         ) {
                                           updateDate.structure_data[index][
                                             "group_rebate"
-                                          ] = e.target.value;
+                                          ] = 0;
                                           updateDate.structure_data[index][
                                             "pair_data"
                                           ].forEach((value, valueIndex) => {
-                                            if (
-                                              updateDate.structure_data[index]
-                                                .pair_data[valueIndex]
-                                                .pair_name == "crypto" ||
-                                              updateDate.structure_data[index]
-                                                .pair_data[valueIndex]
-                                                .pair_name == "indices"
-                                            ) {
-                                            } else {
-                                              updateDate.structure_data[index][
-                                                "pair_data"
-                                              ][valueIndex]["rebate"] =
-                                                e.target.value;
-                                            }
+                                            updateDate.structure_data[index][
+                                              "pair_data"
+                                            ][valueIndex]["rebate"] = 0;
                                           });
                                           setUpdateDate({
                                             ...updateDate,
                                           });
                                         }
-                                      } else if (
-                                        e.target.value == "" ||
-                                        e.target.value == 0
-                                      ) {
-                                        updateDate.structure_data[index][
-                                          "group_rebate"
-                                        ] = 0;
-                                        updateDate.structure_data[index][
-                                          "pair_data"
-                                        ].forEach((value, valueIndex) => {
-                                          updateDate.structure_data[index][
-                                            "pair_data"
-                                          ][valueIndex]["rebate"] = 0;
-                                        });
-                                        setUpdateDate({
-                                          ...updateDate,
-                                        });
-                                      }
+                                      }}
+                                    />
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "block",
+                                      fontWeight: "600",
                                     }}
-                                  />
-                                </div>
-                                <div
-                                  style={{
-                                    display: "block",
-                                    fontWeight: "600",
-                                  }}
-                                >
-                                  <span>Commission</span>
-                                  <input
-                                    type="text"
-                                    className="commission_amount"
-                                    placeholder="Commission"
-                                    value={item.group_commission}
-                                    disabled={!isDefaultStructure}
-                                    onChange={(e) => {
-                                      var floatNumber =
-                                        e.target.value.split(".");
-                                      if (!isNaN(Number(e.target.value))) {
-                                        if (
-                                          floatNumber.length == 1 ||
-                                          (floatNumber.length == 2 &&
-                                            floatNumber[1].length <= 3)
+                                  >
+                                    <span>Commission</span>
+                                    <input
+                                      type="text"
+                                      className="commission_amount"
+                                      placeholder="Commission"
+                                      value={item.group_commission}
+                                      disabled={!isDefaultStructure}
+                                      onChange={(e) => {
+                                        var floatNumber =
+                                          e.target.value.split(".");
+                                        if (!isNaN(Number(e.target.value))) {
+                                          if (
+                                            floatNumber.length == 1 ||
+                                            (floatNumber.length == 2 &&
+                                              floatNumber[1].length <= 3)
+                                          ) {
+                                            updateDate.structure_data[index][
+                                              "group_commission"
+                                            ] = e.target.value;
+                                            updateDate.structure_data[index][
+                                              "pair_data"
+                                            ].forEach((value, valueIndex) => {
+                                              updateDate.structure_data[index][
+                                                "pair_data"
+                                              ][valueIndex]["commission"] =
+                                                e.target.value;
+                                            });
+                                            setUpdateDate({
+                                              ...updateDate,
+                                            });
+                                          }
+                                        } else if (
+                                          e.target.value == "" ||
+                                          e.target.value == 0
                                         ) {
                                           updateDate.structure_data[index][
                                             "group_commission"
-                                          ] = e.target.value;
+                                          ] = 0;
                                           updateDate.structure_data[index][
                                             "pair_data"
                                           ].forEach((value, valueIndex) => {
                                             updateDate.structure_data[index][
                                               "pair_data"
-                                            ][valueIndex]["commission"] =
-                                              e.target.value;
+                                            ][valueIndex]["commission"] = 0;
                                           });
                                           setUpdateDate({
                                             ...updateDate,
                                           });
                                         }
-                                      } else if (
-                                        e.target.value == "" ||
-                                        e.target.value == 0
-                                      ) {
-                                        updateDate.structure_data[index][
-                                          "group_commission"
-                                        ] = 0;
-                                        updateDate.structure_data[index][
-                                          "pair_data"
-                                        ].forEach((value, valueIndex) => {
-                                          updateDate.structure_data[index][
-                                            "pair_data"
-                                          ][valueIndex]["commission"] = 0;
-                                        });
-                                        setUpdateDate({
-                                          ...updateDate,
-                                        });
-                                      }
+                                      }}
+                                    />
+                                  </div>
+                                </div>
+                                <div className="action-section">
+                                  {isDefaultStructure ? (
+                                    <div style={{ width: "95%" }}>
+                                      {item.ibGroup != undefined ? (
+                                        <Autocomplete
+                                          className="autoComplete-input-remove-border"
+                                          // disablePortal
+                                          options={item.ibGroup}
+                                          getOptionLabel={(option) =>
+                                            option ? option.ib_group_name : ""
+                                          }
+                                          onInputChange={(
+                                            event,
+                                            newInputValue
+                                          ) => {
+                                            // fetchAccount(event, newInputValue);
+                                          }}
+                                          onChange={(event, newValue) => {
+                                            updateDate.structure_data[index][
+                                              "ib_group_level_id"
+                                            ] = newValue.ib_group_level_id;
+                                            setUpdateDate({
+                                              ...updateDate,
+                                            });
+                                          }}
+                                          renderInput={(params) => (
+                                            <TextField
+                                              {...params}
+                                              label="IB Group"
+                                              variant="standard"
+                                              style={{
+                                                width: "100%",
+                                                border: "0px !important",
+                                              }}
+                                            />
+                                          )}
+                                        />
+                                      ) : (
+                                        ""
+                                      )}
+                                    </div>
+                                  ) : (
+                                    ""
+                                  )}
+                                  <span
+                                    onClick={(e) => {
+                                      updateDate.structure_data[index][
+                                        "is_visible"
+                                      ] = !item.is_visible;
+                                      setUpdateDate({ ...updateDate });
                                     }}
-                                  />
+                                  >
+                                    <i
+                                      class={`fa ${
+                                        item.is_visible
+                                          ? "fa-angle-up"
+                                          : "fa-angle-down"
+                                      }`}
+                                      aria-hidden="true"
+                                    ></i>
+                                  </span>
                                 </div>
                               </div>
-                              <div className="action-section">
-                                {isDefaultStructure ? (
-                                  <div style={{ width: "95%" }}>
-                                    {item.ibGroup != undefined ? (
-                                      <Autocomplete
-                                        className="autoComplete-input-remove-border"
-                                        // disablePortal
-                                        options={item.ibGroup}
-                                        getOptionLabel={(option) =>
-                                          option ? option.ib_group_name : ""
-                                        }
-                                        onInputChange={(
-                                          event,
-                                          newInputValue
-                                        ) => {
-                                          // fetchAccount(event, newInputValue);
-                                        }}
-                                        onChange={(event, newValue) => {
-                                          updateDate.structure_data[index][
-                                            "ib_group_level_id"
-                                          ] = newValue.ib_group_level_id;
-                                          setUpdateDate({
-                                            ...updateDate,
-                                          });
-                                        }}
-                                        renderInput={(params) => (
-                                          <TextField
-                                            {...params}
-                                            label="IB Group"
-                                            variant="standard"
-                                            style={{
-                                              width: "100%",
-                                              border: "0px !important",
-                                            }}
-                                          />
-                                        )}
-                                      />
-                                    ) : (
-                                      ""
-                                    )}
-                                  </div>
-                                ) : (
-                                  ""
-                                )}
-                                <span
-                                  onClick={(e) => {
-                                    updateDate.structure_data[index][
-                                      "is_visible"
-                                    ] = !item.is_visible;
-                                    setUpdateDate({ ...updateDate });
-                                  }}
-                                >
-                                  <i
-                                    class={`fa ${
-                                      item.is_visible
-                                        ? "fa-angle-up"
-                                        : "fa-angle-down"
-                                    }`}
-                                    aria-hidden="true"
-                                  ></i>
-                                </span>
+                              <div
+                                className={`pair-section ${
+                                  item.is_visible ? "child-section-visible" : ""
+                                }`}
+                              >
+                                {item.pair_data?.map((item1, index1) => {
+                                  return (
+                                    <div className="pair-data">
+                                      <div className="pair-data-title">
+                                        {item1.pair_name}
+                                      </div>
+                                      <div>
+                                        <input
+                                          type="text"
+                                          className="rebert_amount"
+                                          placeholder="Rebert"
+                                          value={item1.rebate}
+                                          disabled={!isDefaultStructure}
+                                          onChange={(e) => {
+                                            var floatNumber =
+                                              e.target.value.split(".");
+                                            if (
+                                              !isNaN(Number(e.target.value))
+                                            ) {
+                                              if (
+                                                floatNumber.length == 1 ||
+                                                (floatNumber.length == 2 &&
+                                                  floatNumber[1].length <= 3)
+                                              ) {
+                                                updateDate.structure_data[
+                                                  index
+                                                ]["pair_data"][index1][
+                                                  "rebate"
+                                                ] = e.target.value;
+                                                setUpdateDate({
+                                                  ...updateDate,
+                                                });
+                                              }
+                                            } else if (
+                                              e.target.value == "" ||
+                                              e.target.value == 0
+                                            ) {
+                                              updateDate.structure_data[index][
+                                                "pair_data"
+                                              ][index1]["rebate"] = 0;
+                                              setUpdateDate({
+                                                ...updateDate,
+                                              });
+                                            }
+                                          }}
+                                        />
+                                      </div>
+                                      <div>
+                                        <input
+                                          type="text"
+                                          className="commission_amount"
+                                          placeholder="Commission"
+                                          value={item1.commission}
+                                          disabled={!isDefaultStructure}
+                                          onChange={(e) => {
+                                            var floatNumber =
+                                              e.target.value.split(".");
+                                            if (
+                                              !isNaN(Number(e.target.value))
+                                            ) {
+                                              if (
+                                                floatNumber.length == 1 ||
+                                                (floatNumber.length == 2 &&
+                                                  floatNumber[1].length <= 3)
+                                              ) {
+                                                updateDate.structure_data[
+                                                  index
+                                                ]["pair_data"][index1][
+                                                  "commission"
+                                                ] = e.target.value;
+                                                setUpdateDate({
+                                                  ...updateDate,
+                                                });
+                                              }
+                                            } else if (
+                                              e.target.value == "" ||
+                                              e.target.value == 0
+                                            ) {
+                                              updateDate.structure_data[index][
+                                                "pair_data"
+                                              ][index1]["commission"] = 0;
+                                              setUpdateDate({
+                                                ...updateDate,
+                                              });
+                                            }
+                                          }}
+                                        />
+                                      </div>
+                                    </div>
+                                  );
+                                })}
                               </div>
                             </div>
-                            <div
-                              className={`pair-section ${
-                                item.is_visible ? "child-section-visible" : ""
-                              }`}
-                            >
-                              {item.pair_data.map((item1, index1) => {
-                                return (
-                                  <div className="pair-data">
-                                    <div className="pair-data-title">
-                                      {item1.pair_name}
-                                    </div>
-                                    <div>
-                                      <input
-                                        type="text"
-                                        className="rebert_amount"
-                                        placeholder="Rebert"
-                                        value={item1.rebate}
-                                        disabled={!isDefaultStructure}
-                                        onChange={(e) => {
-                                          var floatNumber =
-                                            e.target.value.split(".");
-                                          if (!isNaN(Number(e.target.value))) {
-                                            if (
-                                              floatNumber.length == 1 ||
-                                              (floatNumber.length == 2 &&
-                                                floatNumber[1].length <= 3)
-                                            ) {
-                                              updateDate.structure_data[index][
-                                                "pair_data"
-                                              ][index1]["rebate"] =
-                                                e.target.value;
-                                              setUpdateDate({
-                                                ...updateDate,
-                                              });
-                                            }
-                                          } else if (
-                                            e.target.value == "" ||
-                                            e.target.value == 0
-                                          ) {
-                                            updateDate.structure_data[index][
-                                              "pair_data"
-                                            ][index1]["rebate"] = 0;
-                                            setUpdateDate({
-                                              ...updateDate,
-                                            });
-                                          }
-                                        }}
-                                      />
-                                    </div>
-                                    <div>
-                                      <input
-                                        type="text"
-                                        className="commission_amount"
-                                        placeholder="Commission"
-                                        value={item1.commission}
-                                        disabled={!isDefaultStructure}
-                                        onChange={(e) => {
-                                          var floatNumber =
-                                            e.target.value.split(".");
-                                          if (!isNaN(Number(e.target.value))) {
-                                            if (
-                                              floatNumber.length == 1 ||
-                                              (floatNumber.length == 2 &&
-                                                floatNumber[1].length <= 3)
-                                            ) {
-                                              updateDate.structure_data[index][
-                                                "pair_data"
-                                              ][index1]["commission"] =
-                                                e.target.value;
-                                              setUpdateDate({
-                                                ...updateDate,
-                                              });
-                                            }
-                                          } else if (
-                                            e.target.value == "" ||
-                                            e.target.value == 0
-                                          ) {
-                                            updateDate.structure_data[index][
-                                              "pair_data"
-                                            ][index1]["commission"] = 0;
-                                            setUpdateDate({
-                                              ...updateDate,
-                                            });
-                                          }
-                                        }}
-                                      />
-                                    </div>
-                                  </div>
-                                );
-                              })}
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
-                    {/* { */}
-                    {/* (ibdata.sponsor_id == "0") ? <div>
+                          );
+                        })}
+                      </div>
+                      {/* { */}
+                      {/* (ibdata.sponsor_id == "0") ? <div>
                       <label
                         htmlFor="sponsor_approve"
                         className="text-info font-weight-bold form-label-head w-100  required"
@@ -1176,80 +1255,188 @@ const ListRequest = () => {
                     </div> : ""
                     } */}
 
-                    <div>
-                      <label
-                        htmlFor="sponsor_approve"
-                        className="text-info font-weight-bold form-label-head w-100  required"
-                      >
-                        Admin Status
-                      </label>
-                      <Select
-                        value={updateDate.admin_approve}
-                        name="admin_approve"
-                        onChange={input01}
-                        displayEmpty
-                        inputProps={{
-                          "aria-label": "Without label",
-                        }}
-                        input={<BootstrapInput />}
-                        className="mt-0 ml-0"
-                        style={{ width: "100%" }}
-                      >
-                        <MenuItem value="">Select Option</MenuItem>
-                        <MenuItem value="0">PENDING</MenuItem>
-                        <MenuItem value="1">APPROVED</MenuItem>
-                        <MenuItem value="2">REJECTED</MenuItem>
-                      </Select>
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="remarks"
-                        className="text-info font-weight-bold form-label-head w-100 mt-4 required"
-                      >
-                        Remarks
-                      </label>
-                      <BootstrapInput
-                        name="remarks"
-                        value={updateDate.remarks}
-                        onChange={input01}
-                        displayEmpty
-                        inputProps={{
-                          "aria-label": "Without label",
-                        }}
-                      />
-                    </div>
-                    <div>
-                      {updateDate.isLoader ? (
-                        <ColorButton
-                          tabindex="0"
-                          size="large"
-                          style={{ padding: "20px 65px" }}
-                          // className="createMt5Formloder "
-                          disabled
+                      <div>
+                        <label
+                          htmlFor="sponsor_approve"
+                          className="text-info font-weight-bold form-label-head w-100  required"
                         >
-                          <svg class="spinner" viewBox="0 0 50 50">
-                            <circle
-                              class="path"
-                              cx="25"
-                              cy="25"
-                              r="20"
-                              fill="none"
-                              stroke-width="5"
-                            ></circle>
-                          </svg>
-                        </ColorButton>
-                      ) : (
-                        <ColorButton onClick={updatePartnership}>
-                          {updateDate.structure_id == ""
-                            ? "Approve structure"
-                            : "Update structure"}
-                        </ColorButton>
-                      )}
-                      {/* <ColorButton onClick={updatePartnership}>Update</ColorButton> */}
+                          Admin Status
+                        </label>
+                        <Select
+                          value={updateDate.admin_approve}
+                          name="admin_approve"
+                          onChange={input01}
+                          displayEmpty
+                          inputProps={{
+                            "aria-label": "Without label",
+                          }}
+                          input={<BootstrapInput />}
+                          className="mt-0 ml-0"
+                          style={{ width: "100%" }}
+                        >
+                          <MenuItem value="">Select Option</MenuItem>
+                          <MenuItem value="0">PENDING</MenuItem>
+                          <MenuItem value="1">APPROVED</MenuItem>
+                          <MenuItem value="2">REJECTED</MenuItem>
+                        </Select>
+                      </div>
+
+                      <div>
+                        <label
+                          htmlFor="remarks"
+                          className="text-info font-weight-bold form-label-head w-100 mt-4 required"
+                        >
+                          Remarks
+                        </label>
+                        <BootstrapInput
+                          name="remarks"
+                          value={updateDate.remarks}
+                          onChange={input01}
+                          displayEmpty
+                          inputProps={{
+                            "aria-label": "Without label",
+                          }}
+                        />
+                      </div>
+                      <div>
+                        {updateDate.isLoader ? (
+                          <ColorButton
+                            tabindex="0"
+                            size="large"
+                            style={{ padding: "20px 65px" }}
+                            // className="createMt5Formloder "
+                            disabled
+                          >
+                            <svg class="spinner" viewBox="0 0 50 50">
+                              <circle
+                                class="path"
+                                cx="25"
+                                cy="25"
+                                r="20"
+                                fill="none"
+                                stroke-width="5"
+                              ></circle>
+                            </svg>
+                          </ColorButton>
+                        ) : (
+                          <ColorButton onClick={updatePartnership}>
+                            {updateDate.structure_id == ""
+                              ? "Approve structure"
+                              : "Update structure"}
+                          </ColorButton>
+                        )}
+                        {/* <ColorButton onClick={updatePartnership}>Update</ColorButton> */}
+                      </div>
                     </div>
-                  </div>
-                </Grid>
+                  </Grid>
+                )}
+
+                {value === "fixed" && (
+                  <Grid spacing={1}>
+                    <div>
+                      <div style={{ width: "100%" }}>
+                        <label
+                          htmlFor="sponsor_approve"
+                          className="text-info font-weight-bold form-label-head w-100  required"
+                        >
+                          Select Structure
+                        </label>
+                        <Select
+                          value={updateDate.structure_name}
+                          name="structure_name"
+                          onChange={input01}
+                          displayEmpty
+                          inputProps={{
+                            "aria-label": "Without label",
+                          }}
+                          input={<BootstrapInput />}
+                          className="mt-0 ml-0"
+                          style={{ width: "100%" }}
+                        >
+                          <MenuItem value="">Select Option</MenuItem>
+                          {OptionState?.map((option) => (
+                            <MenuItem value={option.structure_id}>
+                              {option.structure_name}
+                            </MenuItem>
+                          ))}
+                        </Select>
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="sponsor_approve"
+                          className="text-info font-weight-bold form-label-head w-100  required"
+                        >
+                          Admin Status
+                        </label>
+                        <Select
+                          value={updateDate.admin_approve}
+                          name="admin_approve"
+                          onChange={input01}
+                          displayEmpty
+                          inputProps={{
+                            "aria-label": "Without label",
+                          }}
+                          input={<BootstrapInput />}
+                          className="mt-0 ml-0"
+                          style={{ width: "100%" }}
+                        >
+                          <MenuItem value="">Select Option</MenuItem>
+                          <MenuItem value="0">PENDING</MenuItem>
+                          <MenuItem value="1">APPROVED</MenuItem>
+                          <MenuItem value="2">REJECTED</MenuItem>
+                        </Select>
+                      </div>
+
+                      <div style={{ width: "100%" }}>
+                        <label
+                          htmlFor="remarks"
+                          className="text-info font-weight-bold form-label-head w-100 mt-2 required"
+                        >
+                          Remarks
+                        </label>
+                        <BootstrapInput
+                          style={{ width: "100%" }}
+                          name="remarks"
+                          value={updateDate.remarks}
+                          onChange={input01}
+                          displayEmpty
+                          inputProps={{
+                            "aria-label": "Without label",
+                          }}
+                        />
+                      </div>
+                      <div className="my-2 text-right">
+                        {updateDate.isLoader ? (
+                          <ColorButton
+                            tabindex="0"
+                            size="large"
+                            style={{ padding: "20px 65px" }}
+                            // className="createMt5Formloder "
+                            disabled
+                          >
+                            <svg class="spinner" viewBox="0 0 50 50">
+                              <circle
+                                class="path"
+                                cx="25"
+                                cy="25"
+                                r="20"
+                                fill="none"
+                                stroke-width="5"
+                              ></circle>
+                            </svg>
+                          </ColorButton>
+                        ) : (
+                          <ColorButton onClick={updatePartnership}>
+                            {updateDate.structure_id == ""
+                              ? "Approve structure"
+                              : "Update structure"}
+                          </ColorButton>
+                        )}
+                        {/* <ColorButton onClick={updatePartnership}>Update</ColorButton> */}
+                      </div>
+                    </div>
+                  </Grid>
+                )}
               </DialogContent>
             </Dialog>
           </div>

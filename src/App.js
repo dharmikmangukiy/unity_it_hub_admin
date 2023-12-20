@@ -118,6 +118,8 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Mt5_wise_ib_master_ib_list from "./report/Mt5_wise_ib_master_ib_list";
 import Ib_rebate_report from "./report/Ib_rebate_report";
+import Static_Commission_Master from "./commision_group/Static_Commission_Master.jsx";
+import Static_Commission_Master_Edit from "./commision_group/Static_Commission_Master_Edit.jsx";
 var redirect_url = "";
 function useScrollToTop() {
   const { pathname } = useLocation();
@@ -353,6 +355,16 @@ const App = () => {
                     exact
                     path="/commision_group"
                     element={<CommisionGroup permission={permission} />}
+                  />
+                  <Route
+                    exact
+                    path="/Static_Commission_Master"
+                    element={<Static_Commission_Master permission={permission} />}
+                  />
+                  <Route
+                    exact
+                    path="/Static_Commission_Master_Edit/:id"
+                    element={<Static_Commission_Master_Edit permission={permission} />}
                   />
                   {/* <Route exact path="/generate_income" element={<GenerateIncome />} /> */}
                   <Route exact path="/mt5_group" element={<Mt5Group />} />

@@ -82,7 +82,7 @@ const Sidebar = (prop) => {
     }
     axios.post(`${Url}/ajaxfiles/get_user_prefrence.php`, param).then((res) => {
       setpersonal(res.data.project_name)
-      console.log(personal);
+      // console.log(personal);
       localStorage.setItem("projectName", personal);
       if (res.data.message == "Session has been expired") {
         toast.error(res.data.message);

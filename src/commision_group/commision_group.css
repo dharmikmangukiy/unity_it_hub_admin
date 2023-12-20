@@ -6,6 +6,11 @@
     line-height: 1.2;
     font-family: cairo,sans-serif;
 }
+.Width_levels{
+    
+    min-width: 100px;
+
+}
 .card-content {
     padding: 24px;
 }

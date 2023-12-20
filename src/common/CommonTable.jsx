@@ -123,6 +123,12 @@ const CommonTable = (prop) => {
     param.append("draw", 0);
     param.append("start", page);
     param.append("length", clientPerPage);
+    if (prop.action) {
+      param.append("action", prop.action);
+    }
+    if (prop.structure_id) {
+      param.append("structure_id", prop.structure_id);
+    }
     if (prop.level) {
       param.append("level_id", prop.level);
     }
