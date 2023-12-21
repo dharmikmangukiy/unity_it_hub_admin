@@ -57,6 +57,7 @@ const Static_Commission_Master = (prop) => {
     ib_group_main_id: "",
     pair_data: [
       {
+        script_name1: "",
         script_name: "",
         total_commission: "",
         commission_level_1: "",
@@ -471,7 +472,7 @@ const Static_Commission_Master = (prop) => {
           <div className="view-commission-content-section p-2">
             <table class="table table-responsive">
               <thead>
-                <th>Script Name</th>
+                <th style={{minWidth: "150px"}}>Script Name</th>
                 <th>Commision</th>
                 <th>Level 1</th>
                 <th>Level 2</th>
@@ -483,6 +484,8 @@ const Static_Commission_Master = (prop) => {
                 <th>Level 8</th>
                 <th>Level 9</th>
                 <th>Level 10</th>
+                <th>Delete</th>
+
               </thead>
               <thead>
                 {form.pair_data.map((item, index) => {
@@ -506,31 +509,31 @@ const Static_Commission_Master = (prop) => {
                                 ? newValue.total_commission
                                 : "";
 
-                              setForm((prevForm) => ({
-                                ...prevForm,
-                                pair_data: prevForm.pair_data.map((item, i) =>
-                                  i === index
-                                    ? {
-                                        ...item,
-                                        script_name: selectedScriptName,
-                                        total_commission:
-                                          selectedTotalCommission,
-                                      }
-                                    : item
-                                ),
-                              }));
-
+                              // setForm((prevForm) => ({
+                              //   ...prevForm,
+                              //   pair_data: prevForm.pair_data.map((item, i) =>
+                              //     i === index
+                              //       ? {
+                              //           ...item,
+                              //           script_name: selectedScriptName,
+                              //           total_commission:
+                              //             selectedTotalCommission,
+                              //         }
+                              //       : item
+                              //   ),
+                              // }));
+                              form.pair_data[index].script_name=newValue?.script_name
+                              form.pair_data[index].script_name1=newValue
+                              
+                              setForm({...form})
                               setOption((prevOptions) =>
                                 prevOptions.filter(
                                   (opt) => opt.script_id !== selectedScriptId
                                 )
                               );
                             }}
-                            value={option.find(
-                              (opt) =>
-                                opt.script_name ===
-                                form.pair_data[index].script_name
-                            )}
+                            value={item?.script_name1 ? item?.script_name1 :""}
+
                             sx={{ width: "100%" }}
                             renderInput={(params) => (
                               <TextField
@@ -869,11 +872,14 @@ const Static_Commission_Master = (prop) => {
                           />
                         </div>
                       </th>
+                      <th>
                       {form.pair_data.length !== 1 ? (
-                        <CloseIcon onClick={removeInputFields} />
+                        <CloseIcon onClick={()=>removeInputFields(index)} />
                       ) : (
                         ""
                       )}
+                      </th>
+                    
                     </tr>
                   );
                 })}
@@ -1006,15 +1012,17 @@ const Static_Commission_Master = (prop) => {
     setForm({ ...form });
   };
   const removeInputFields = (index) => {
+    console.log("index",index)
     const updatedPairData = [...form.pair_data];
-    updatedPairData.splice(index, 1);
-
-    setForm((prevForm) => ({
-      ...prevForm,
-      pair_data: updatedPairData,
-    }));
+    form.pair_data.splice(index, 1);
+    console.log("form.pair_data",form.pair_data)
+setForm({...form})
+    // setForm((prevForm) => ({
+    //   ...prevForm,
+    //   pair_data: updatedPairData,
+    // }));
   };
-
+ 
   const submitUpdate = async () => {
     if (Number(form.ib_company_crypto) > Number(form.ib_company_passon)) {
       toast.error(

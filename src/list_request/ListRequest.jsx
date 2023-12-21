@@ -41,7 +41,7 @@ const ListRequest = () => {
   const [resData, setResData] = useState({});
   const [value, setValue] = React.useState();
   const [OptionState, setOptionState] = useState();
-
+  const [SelectionOption, setSelectionOption] = useState();
   const [updateDate, setUpdateDate] = useState({
     structure_id: "",
     sponsor_approve: "",
@@ -340,8 +340,10 @@ const ListRequest = () => {
       grow: 0.1,
     },
   ];
+
   const viewRequest = async (prop) => {
     setIbData(prop);
+    setValue(prop.commission_type);
     if (prop.sponsor_id == "0") {
       const param = new FormData();
       if (IsApprove !== "") {
@@ -366,7 +368,7 @@ const ListRequest = () => {
             toast.error(res.data.message);
           } else {
             setOptionState(res.data.fixed_structure_list);
-
+            setSelectionOption(res.data.select_comission_type);
             setIsDefaultStructure(true);
             updateDate.structure_data = res.data.data;
             if (res.data.structure_id) {
@@ -417,7 +419,7 @@ const ListRequest = () => {
             updateDate.remarks = prop.remarks;
             updateDate.admin_approve = prop.admin_approve;
             updateDate.structure_name = prop.structure_name;
-
+            setSelectionOption(res.data.select_comission_type);
             setUpdateDate({ ...updateDate });
             setOpenModel(true);
           }
@@ -445,6 +447,7 @@ const ListRequest = () => {
           if (res.data.status == "error") {
             toast.error(res.data.message);
           } else {
+            setSelectionOption(res.data.select_comission_type);
             setOptionState(res.data.fixed_structure_list);
             setOpenModel(true);
           }
@@ -462,6 +465,7 @@ const ListRequest = () => {
         setGetStructuresList(res.data.data);
       }); */
   };
+  console.log(SelectionOption);
   const handleClose = () => {
     setOpenModel(false);
   };
@@ -514,7 +518,6 @@ const ListRequest = () => {
   //   }
   // };
   toast.configure();
-  console.log(updateDate);
   const updatePartnership = async () => {
     // if (updateDate.structure_data.length > 0) {
     //   if (updateDate.structure_name == "") {
@@ -575,7 +578,7 @@ const ListRequest = () => {
     //   }
     // }
 
-    if (updateDate.structure_name == "") {
+    if (updateDate.structure_name == "" && value != "fixed" ) {
       toast.error("Please enter structure name");
     } else {
       updateDate.isLoader = true;
@@ -624,6 +627,7 @@ const ListRequest = () => {
           if (res.data.status == "error") {
             toast.error(res.data.message);
           } else {
+            setSelectionOption(res.data.select_comission_type);
             toast.success(res.data.message);
             setOpenModel(false);
             setUpdateDate({
@@ -695,7 +699,7 @@ const ListRequest = () => {
   const handleChange = (event) => {
     setValue(event.target.value);
   };
-  console.log(updateDate);
+
   return (
     <div>
       <div className="app-content--inner">
@@ -764,29 +768,32 @@ const ListRequest = () => {
                 />
               </DialogTitle>
               <DialogContent className="view-ib-content-section">
-                <FormControl>
-                  <FormLabel id="demo-controlled-radio-buttons-group">
-                    <b>Select IB</b>
-                  </FormLabel>
-                  <RadioGroup
-                    style={{ display: "unset", padding: "0px 0 18px 0" }}
-                    aria-labelledby="demo-controlled-radio-buttons-group"
-                    name="controlled-radio-buttons-group"
-                    value={value}
-                    onChange={handleChange}
-                  >
-                    <FormControlLabel
-                      value="manual"
-                      control={<Radio />}
-                      label="Manual"
-                    />
-                    <FormControlLabel
-                      value="fixed"
-                      control={<Radio />}
-                      label="Fixed"
-                    />
-                  </RadioGroup>
-                </FormControl>
+                {SelectionOption == true && (
+                  <FormControl>
+                    <FormLabel id="demo-controlled-radio-buttons-group">
+                      <b>Select IB</b>
+                    </FormLabel>
+                    <RadioGroup
+                      style={{ display: "unset", padding: "0px 0 18px 0" }}
+                      aria-labelledby="demo-controlled-radio-buttons-group"
+                      name="controlled-radio-buttons-group"
+                      value={value}
+                      onChange={handleChange}
+                    >
+                      <FormControlLabel
+                        value="manual"
+                        control={<Radio />}
+                        label="Manual"
+                      />
+                      <FormControlLabel
+                        value="fixed"
+                        control={<Radio />}
+                        label="Fixed"
+                      />
+                    </RadioGroup>
+                  </FormControl>
+                )}
+
                 {value === "manual" && (
                   <Grid container spacing={1}>
                     <div>
@@ -1334,33 +1341,36 @@ const ListRequest = () => {
                 {value === "fixed" && (
                   <Grid spacing={1}>
                     <div>
-                      <div style={{ width: "100%" }}>
-                        <label
-                          htmlFor="sponsor_approve"
-                          className="text-info font-weight-bold form-label-head w-100  required"
-                        >
-                          Select Structure
-                        </label>
-                        <Select
-                          value={updateDate.structure_name}
-                          name="structure_name"
-                          onChange={input01}
-                          displayEmpty
-                          inputProps={{
-                            "aria-label": "Without label",
-                          }}
-                          input={<BootstrapInput />}
-                          className="mt-0 ml-0"
-                          style={{ width: "100%" }}
-                        >
-                          <MenuItem value="">Select Option</MenuItem>
-                          {OptionState?.map((option) => (
-                            <MenuItem value={option.structure_id}>
-                              {option.structure_name}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </div>
+                      {SelectionOption == true && (
+                        <div style={{ width: "100%" }}>
+                          <label
+                            htmlFor="sponsor_approve"
+                            className="text-info font-weight-bold form-label-head w-100  required"
+                          >
+                            Select Structure
+                          </label>
+                          <Select
+                            value={updateDate.structure_name}
+                            name="structure_name"
+                            onChange={input01}
+                            displayEmpty
+                            inputProps={{
+                              "aria-label": "Without label",
+                            }}
+                            input={<BootstrapInput />}
+                            className="mt-0 ml-0"
+                            style={{ width: "100%" }}
+                          >
+                            <MenuItem value="">Select Option</MenuItem>
+                            {OptionState?.map((option) => (
+                              <MenuItem value={option.structure_id}>
+                                {option.structure_name}
+                              </MenuItem>
+                            ))}
+                          </Select>
+                        </div>
+                      )}
+
                       <div>
                         <label
                           htmlFor="sponsor_approve"
