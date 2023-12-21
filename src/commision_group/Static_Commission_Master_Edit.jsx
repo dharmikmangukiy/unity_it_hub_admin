@@ -39,7 +39,6 @@ function Static_Commission_Master_Edit(prop) {
   const [RowData, setRowData] = useState();
   const [option, setOption] = useState([]);
   const [Newoption, setNewOption] = useState([]);
-
   const [form, setForm] = useState({
     pair_data: [
       {
@@ -432,8 +431,460 @@ function Static_Commission_Master_Edit(prop) {
     setNewOption(filteredResDataScriptNames);
   };
 
+  const addInputField = () => {
+    form.pair_data.push({
+      script_name: "",
+      total_commission: "",
+      commission_level_1: "",
+      commission_level_2: "",
+      commission_level_3: "",
+      commission_level_4: "",
+      commission_level_5: "",
+      commission_level_6: "",
+      commission_level_7: "",
+      commission_level_8: "",
+      commission_level_9: "",
+      commission_level_10: "",
+    });
+    setForm({ ...form });
+  };
+  const removeInputFields = (index) => {
+    const updatedPairData = [...form.pair_data];
+    updatedPairData.splice(index, 1);
+
+    setForm((prevForm) => ({
+      ...prevForm,
+      pair_data: updatedPairData,
+    }));
+  };
+
+
   const manageContent = () => {
     if (dialogTitle == "Add") {
+      return (
+        <div>
+          <div className="view-commission-content-section p-2">
+            <table class="table table-responsive">
+              <thead>
+                <th>Script Name</th>
+                <th>Commision</th>
+                <th>Level 1</th>
+                <th>Level 2</th>
+                <th>Level 3</th>
+                <th>Level 4</th>
+                <th>Level 5</th>
+                <th>Level 6</th>
+                <th>Level 7</th>
+                <th>Level 8</th>
+                <th>Level 9</th>
+                <th>Level 10</th>
+              </thead>
+              <thead>
+                {form.pair_data.map((item, index) => {
+                  return (
+                    <tr>
+                      <th>
+                        <div className="Width_levels">
+                          <Autocomplete
+                            options={Newoption}
+                            getOptionLabel={(opt) =>
+                              opt ? opt.script_name : ""
+                            }
+                            onChange={(event, newValue) => {
+                              const selectedScriptId = newValue
+                                ? newValue.script_id
+                                : "";
+                              const selectedScriptName = newValue
+                                ? newValue.script_name
+                                : "";
+                              const selectedTotalCommission = newValue
+                                ? newValue.total_commission
+                                : "";
+
+                              setForm((prevForm) => ({
+                                ...prevForm,
+                                pair_data: prevForm.pair_data.map((item, i) =>
+                                  i === index
+                                    ? {
+                                        ...item,
+                                        script_name: selectedScriptName,
+                                        total_commission:
+                                          selectedTotalCommission,
+                                      }
+                                    : item
+                                ),
+                              }));
+
+                              setOption((prevOptions) =>
+                                prevOptions.filter(
+                                  (opt) => opt.script_id !== selectedScriptId
+                                )
+                              );
+                            }}
+                            value={option.find(
+                              (opt) =>
+                                opt.script_name ===
+                                form.pair_data[index].script_name
+                            )}
+                            sx={{ width: "100%" }}
+                            renderInput={(params) => (
+                              <TextField
+                                {...params}
+                                // label="Script Name"
+                                variant="standard"
+                              />
+                            )}
+                          />
+                        </div>
+                      </th>
+                      <th>
+                        <div className="Width_levels">
+                          <TextField
+                            type="text"
+                            // label="Commision"
+                            variant="standard"
+                            sx={{ width: "100%" }}
+                            name="Commision"
+                            // error={
+                            //   form.Commision == "" && inputinfoTrue.Commision
+                            //     ? true
+                            //     : false
+                            // }
+                            // helperText={
+                            //   form.Commision == "" && inputinfoTrue.Commision
+                            //     ? "Commision is required"
+                            //     : ""
+                            // }
+                            value={form.pair_data[index].total_commission}
+                            onChange={(e) => {
+                              if (
+                                e.target.value === "" ||
+                                /^[\d]*\.?[\d]{0,2}$/.test(e.target.value) ||
+                                e.target.value === " "
+                              ) {
+                                input(e);
+                                form.pair_data[index].total_commission =
+                                  e.target.value;
+                                setForm({ ...form });
+                              }
+                            }}
+                          />
+                        </div>
+                      </th>
+                      <th scope="col">
+                        <div className="Width_levels">
+                          <TextField
+                          disabled={form.pair_data[index].total_commission == ""}
+                            type="text"
+                             
+                            // label="Level 1"
+                            variant="standard"
+                            sx={{ width: "100%" }}
+                            name="Level_1"
+                            // onBlur={inputtrueFalse}
+                            // error={
+                            //   form.Level_1 == "" && inputinfoTrue.Level_1
+                            //     ? true
+                            //     : false
+                            // }
+                            // helperText={
+                            //   form.Level_1 == "" && inputinfoTrue.Level_1
+                            //     ? "Level 1 is required"
+                            //     : ""
+                            // }
+                            value={form.pair_data[index].commission_level_1}
+                            onChange={(e) => {
+                              if (
+                                e.target.value === "" ||
+                                /^[\d]*\.?[\d]{0,2}$/.test(e.target.value) ||
+                                e.target.value === " "
+                              ) {
+                                input(e);
+                                form.pair_data[index].commission_level_1 =
+                                  e.target.value;
+                                setForm({ ...form });
+                              }
+                            }}
+                          />
+                        </div>
+                      </th>
+                      <th scope="col">
+                        <div className="Width_levels">
+                          <TextField
+                            type="text"
+                                disabled={form.pair_data[index].total_commission == ""}
+                            // label="Level 2"
+                            variant="standard"
+                            sx={{ width: "100%" }}
+                            name="Level_2"
+                            // onBlur={inputtrueFalse}
+                            // error={
+                            //   form.Level_2 == "" && inputinfoTrue.Level_2
+                            //     ? true
+                            //     : false
+                            // }
+                            // helperText={
+                            //   form.Level_2 == "" && inputinfoTrue.Level_2
+                            //     ? "Level 2 is required"
+                            //     : ""
+                            // }
+                            value={form.pair_data[index].commission_level_2}
+                            onChange={(e) => {
+                              if (
+                                e.target.value === "" ||
+                                /^[\d]*\.?[\d]{0,2}$/.test(e.target.value) ||
+                                e.target.value === " "
+                              ) {
+                                input(e, index);
+                                form.pair_data[index].commission_level_2 =
+                                  e.target.value;
+                                setForm({ ...form });
+                              }
+                            }}
+                          />
+                        </div>
+                      </th>
+                      <th scope="col">
+                        <div className="Width_levels">
+                          <TextField
+                            type="text"
+                                disabled={form.pair_data[index].total_commission == ""}
+                            // label="Level 3"
+                            variant="standard"
+                            sx={{ width: "100%" }}
+                            name="Level_3"
+                            // onBlur={inputtrueFalse}
+                            // error={
+                            //   form.Level_3 == "" && inputinfoTrue.Level_3
+                            //     ? true
+                            //     : false
+                            // }
+                            // helperText={
+                            //   form.Level_3 == "" && inputinfoTrue.Level_3
+                            //     ? "Level 3 is required"
+                            //     : ""
+                            // }
+                            value={form.pair_data[index].commission_level_3}
+                            onChange={(e) => {
+                              if (
+                                e.target.value === "" ||
+                                /^[\d]*\.?[\d]{0,2}$/.test(e.target.value) ||
+                                e.target.value === " "
+                              ) {
+                                input(e);
+                                form.pair_data[index].commission_level_3 =
+                                  e.target.value;
+                                setForm({ ...form });
+                              }
+                            }}
+                          />
+                        </div>
+                      </th>
+                      <th scope="col">
+                        {" "}
+                        <div className="Width_levels">
+                          <TextField
+                            type="text"
+                                disabled={form.pair_data[index].total_commission == ""}
+                            // label="Level 4"
+                            variant="standard"
+                            sx={{ width: "100%" }}
+                            name="Level_4"
+                            // onBlur={inputtrueFalse}
+                            value={form.pair_data[index].commission_level_4}
+                            onChange={(e) => {
+                              if (
+                                e.target.value === "" ||
+                                /^[\d]*\.?[\d]{0,2}$/.test(e.target.value) ||
+                                e.target.value === " "
+                              ) {
+                                input(e);
+                                form.pair_data[index].commission_level_4 =
+                                  e.target.value;
+                                setForm({ ...form });
+                              }
+                            }}
+                          />
+                        </div>
+                      </th>
+                      <th scope="col">
+                        <div className="Width_levels">
+                          <TextField
+                            type="text"
+                                disabled={form.pair_data[index].total_commission == ""}
+                            // label="Level 5"
+                            variant="standard"
+                            sx={{ width: "100%" }}
+                            name="Level_5"
+                            // onBlur={inputtrueFalse}
+                            value={form.pair_data[index].commission_level_5}
+                            onChange={(e) => {
+                              if (
+                                e.target.value === "" ||
+                                /^[\d]*\.?[\d]{0,2}$/.test(e.target.value) ||
+                                e.target.value === " "
+                              ) {
+                                input(e);
+                                form.pair_data[index].commission_level_5 =
+                                  e.target.value;
+                                setForm({ ...form });
+                              }
+                            }}
+                          />
+                        </div>
+                      </th>
+
+                      <th>
+                        <div className="Width_levels">
+                          <TextField
+                            type="text"
+                                disabled={form.pair_data[index].total_commission == ""}
+                            // label="Level 6"
+                            variant="standard"
+                            sx={{ width: "100%" }}
+                            name="Level_6"
+                            // onBlur={inputtrueFalse}
+                            value={form.pair_data[index].commission_level_6}
+                            onChange={(e) => {
+                              if (
+                                e.target.value === "" ||
+                                /^[\d]*\.?[\d]{0,2}$/.test(e.target.value) ||
+                                e.target.value === " "
+                              ) {
+                                input(e);
+                                form.pair_data[index].commission_level_6 =
+                                  e.target.value;
+                                setForm({ ...form });
+                              }
+                            }}
+                          />
+                        </div>
+                      </th>
+                      <th>
+                        <div className="Width_levels">
+                          <TextField
+                            type="text"
+                                disabled={form.pair_data[index].total_commission == ""}
+                            // label="Level 7"
+                            variant="standard"
+                            sx={{ width: "100%" }}
+                            name="Level_7"
+                            // onBlur={inputtrueFalse}
+                            value={form.pair_data[index].commission_level_7}
+                            onChange={(e) => {
+                              if (
+                                e.target.value === "" ||
+                                /^[\d]*\.?[\d]{0,2}$/.test(e.target.value) ||
+                                e.target.value === " "
+                              ) {
+                                input(e);
+                                form.pair_data[index].commission_level_7 =
+                                  e.target.value;
+                                setForm({ ...form });
+                              }
+                            }}
+                          />
+                        </div>
+                      </th>
+                      <th>
+                        <div className="Width_levels">
+                          <TextField
+                            type="text"
+                                disabled={form.pair_data[index].total_commission == ""}
+                            // label="Level 8"
+                            variant="standard"
+                            sx={{ width: "100%" }}
+                            name="Level_8"
+                            // onBlur={inputtrueFalse}
+                            value={form.pair_data[index].commission_level_8}
+                            onChange={(e) => {
+                              if (
+                                e.target.value === "" ||
+                                /^[\d]*\.?[\d]{0,2}$/.test(e.target.value) ||
+                                e.target.value === " "
+                              ) {
+                                input(e);
+                                form.pair_data[index].commission_level_8 =
+                                  e.target.value;
+                                setForm({ ...form });
+                              }
+                            }}
+                          />
+                        </div>
+                      </th>
+                      <th>
+                        <div className="Width_levels">
+                          <TextField
+                            type="text"
+                                disabled={form.pair_data[index].total_commission == ""}
+                            // label="Level 9"
+                            variant="standard"
+                            sx={{ width: "100%" }}
+                            name="Level_9"
+                            // onBlur={inputtrueFalse}
+                            value={form.pair_data[index].commission_level_9}
+                            onChange={(e) => {
+                              if (
+                                e.target.value === "" ||
+                                /^[\d]*\.?[\d]{0,2}$/.test(e.target.value) ||
+                                e.target.value === " "
+                              ) {
+                                input(e);
+                                form.pair_data[index].commission_level_9 =
+                                  e.target.value;
+                                setForm({ ...form });
+                              }
+                            }}
+                          />
+                        </div>
+                      </th>
+                      <th>
+                        <div className="Width_levels">
+                          <TextField
+                            type="text"
+                                disabled={form.pair_data[index].total_commission == ""}
+                            // label="Level 10"
+                            variant="standard"
+                            sx={{ width: "100%" }}
+                            name="Level_10"
+                            // onBlur={inputtrueFalse}
+                            value={form.pair_data[index].commission_level_10}
+                            onChange={(e) => {
+                              if (
+                                e.target.value === "" ||
+                                /^[\d]*\.?[\d]{0,2}$/.test(e.target.value) ||
+                                e.target.value === " "
+                              ) {
+                                input(e);
+                                form.pair_data[index].commission_level_10 =
+                                  e.target.value;
+                                setForm({ ...form });
+                              }
+                            }}
+                          />
+                        </div>
+                      </th>
+                      {form.pair_data.length !== 1 ? (
+                        <CloseIcon onClick={removeInputFields} />
+                      ) : (
+                        ""
+                      )}
+                    </tr>
+                  );
+                })}
+              </thead>
+            </table>
+          </div>
+
+          <br />
+          <div style={{ textAlign: "end" }}>
+            <Button variant="contained" onClick={addInputField}>
+              + Add More
+            </Button>
+          </div>
+        </div>
+      );
+    } else if (dialogTitle == "Update") {
       return (
         <div>
           <div className="view-commission-content-section p-2">
@@ -461,12 +912,13 @@ function Static_Commission_Master_Edit(prop) {
                         getOptionLabel={(option) =>
                           option ? option.script_name : ""
                         }
+                        
                         onChange={(event, newValue) => {
                           form.pair_data[0].script_name = newValue.script_name;
                           setForm({ ...form });
                         }}
                         sx={{ width: "100%" }}
-                        // value={item?.script_name}
+                        value={form.pair_data[0]}
                         style={{ minWidth: "150px" }}
                         renderInput={(params) => (
                           <TextField
@@ -475,339 +927,6 @@ function Static_Commission_Master_Edit(prop) {
                             variant="standard"
                           />
                         )}
-                      />
-                    </div>
-                  </th>
-                  <th>
-                    <div className="Width_levels">
-                      <TextField
-                        type="text"
-                        // label="Commision"
-                        variant="standard"
-                        sx={{ width: "100%" }}
-                        name="Commision"
-                        value={form.pair_data[0].total_commission}
-                        onChange={(e) => {
-                          if (
-                            e.target.value === "" ||
-                            /^[\d]*\.?[\d]{0,2}$/.test(e.target.value) ||
-                            e.target.value === " "
-                          ) {
-                            input(e);
-                            form.pair_data[0].total_commission = e.target.value;
-                            setForm({ ...form });
-                          }
-                        }}
-                      />
-                    </div>
-                  </th>
-                  <th scope="col">
-                    <div className="Width_levels">
-                      <TextField
-                      disabled={form.pair_data[0].total_commission == ""}
-                        type="text"
-                        // label="Level 1"
-                        variant="standard"
-                        sx={{ width: "100%" }}
-                        name="Level_1"
-                        value={form.pair_data[0].commission_level_1}
-                        onChange={(e) => {
-                          if (
-                            e.target.value === "" ||
-                            /^[\d]*\.?[\d]{0,2}$/.test(e.target.value) ||
-                            e.target.value === " "
-                          ) {
-                            input(e);
-                            form.pair_data[0].commission_level_1 =
-                              e.target.value;
-                            setForm({ ...form });
-                          }
-                        }}
-                      />
-                    </div>
-                  </th>
-                  <th scope="col">
-                    <div className="Width_levels">
-                      <TextField
-                        type="text"
-                        disabled={form.pair_data[0].total_commission == ""}
-                        // label="Level 2"
-                        variant="standard"
-                        sx={{ width: "100%" }}
-                        name="Level_2"
-                        value={form.pair_data[0].commission_level_2}
-                        onChange={(e) => {
-                          if (
-                            e.target.value === "" ||
-                            /^[\d]*\.?[\d]{0,2}$/.test(e.target.value) ||
-                            e.target.value === " "
-                          ) {
-                            input(e);
-                            form.pair_data[0].commission_level_2 =
-                              e.target.value;
-                            setForm({ ...form });
-                          }
-                        }}
-                      />
-                    </div>
-                  </th>
-                  <th scope="col">
-                    <div className="Width_levels">
-                      <TextField
-                        type="text"
-                        disabled={form.pair_data[0].total_commission == ""}
-                        // label="Level 3"
-                        variant="standard"
-                        sx={{ width: "100%" }}
-                        name="Level_3"
-                        value={form.pair_data[0].commission_level_3}
-                        onChange={(e) => {
-                          if (
-                            e.target.value === "" ||
-                            /^[\d]*\.?[\d]{0,2}$/.test(e.target.value) ||
-                            e.target.value === " "
-                          ) {
-                            input(e);
-                            form.pair_data[0].commission_level_3 =
-                              e.target.value;
-                            setForm({ ...form });
-                          }
-                        }}
-                      />
-                    </div>
-                  </th>
-                  <th scope="col">
-                    {" "}
-                    <div className="Width_levels">
-                      <TextField
-                        type="text"
-                        disabled={form.pair_data[0].total_commission == ""}
-                        // label="Level 4"
-                        variant="standard"
-                        sx={{ width: "100%" }}
-                        name="Level_4"
-                        // onBlur={inputtrueFalse}
-                        value={form.pair_data[0].commission_level_4}
-                        onChange={(e) => {
-                          if (
-                            e.target.value === "" ||
-                            /^[\d]*\.?[\d]{0,2}$/.test(e.target.value) ||
-                            e.target.value === " "
-                          ) {
-                            input(e);
-                            form.pair_data[0].commission_level_4 =
-                              e.target.value;
-                            setForm({ ...form });
-                          }
-                        }}
-                      />
-                    </div>
-                  </th>
-                  <th scope="col">
-                    <div className="Width_levels">
-                      <TextField
-                        type="text"
-                        disabled={form.pair_data[0].total_commission == ""}
-                        // label="Level 5"
-                        variant="standard"
-                        sx={{ width: "100%" }}
-                        name="Level_5"
-                        // onBlur={inputtrueFalse}
-                        value={form.pair_data[0].commission_level_5}
-                        onChange={(e) => {
-                          if (
-                            e.target.value === "" ||
-                            /^[\d]*\.?[\d]{0,2}$/.test(e.target.value) ||
-                            e.target.value === " "
-                          ) {
-                            input(e);
-                            form.pair_data[0].commission_level_5 =
-                              e.target.value;
-                            setForm({ ...form });
-                          }
-                        }}
-                      />
-                    </div>
-                  </th>
-
-                  <th>
-                    <div className="Width_levels">
-                      <TextField
-                        type="text"
-                        disabled={form.pair_data[0].total_commission == ""}
-                        // label="Level 6"
-                        variant="standard"
-                        sx={{ width: "100%" }}
-                        name="Level_6"
-                        // onBlur={inputtrueFalse}
-                        value={form.pair_data[0].commission_level_6}
-                        onChange={(e) => {
-                          if (
-                            e.target.value === "" ||
-                            /^[\d]*\.?[\d]{0,2}$/.test(e.target.value) ||
-                            e.target.value === " "
-                          ) {
-                            input(e);
-                            form.pair_data[0].commission_level_6 =
-                              e.target.value;
-                            setForm({ ...form });
-                          }
-                        }}
-                      />
-                    </div>
-                  </th>
-                  <th>
-                    <div className="Width_levels">
-                      <TextField
-                        type="text"
-                        disabled={form.pair_data[0].total_commission == ""}
-                        // label="Level 7"
-                        variant="standard"
-                        sx={{ width: "100%" }}
-                        name="Level_7"
-                        // onBlur={inputtrueFalse}
-                        value={form.pair_data[0].commission_level_7}
-                        onChange={(e) => {
-                          if (
-                            e.target.value === "" ||
-                            /^[\d]*\.?[\d]{0,2}$/.test(e.target.value) ||
-                            e.target.value === " "
-                          ) {
-                            input(e);
-                            form.pair_data[0].commission_level_7 =
-                              e.target.value;
-                            setForm({ ...form });
-                          }
-                        }}
-                      />
-                    </div>
-                  </th>
-                  <th>
-                    <div className="Width_levels">
-                      <TextField
-                        type="text"
-                        disabled={form.pair_data[0].total_commission == ""}
-                        // label="Level 8"
-                        variant="standard"
-                        sx={{ width: "100%" }}
-                        name="Level_8"
-                        // onBlur={inputtrueFalse}
-                        value={form.pair_data[0].commission_level_8}
-                        onChange={(e) => {
-                          if (
-                            e.target.value === "" ||
-                            /^[\d]*\.?[\d]{0,2}$/.test(e.target.value) ||
-                            e.target.value === " "
-                          ) {
-                            input(e);
-                            form.pair_data[0].commission_level_8 =
-                              e.target.value;
-                            setForm({ ...form });
-                          }
-                        }}
-                      />
-                    </div>
-                  </th>
-                  <th>
-                    <div className="Width_levels">
-                      <TextField
-                        type="text"
-                        disabled={form.pair_data[0].total_commission == ""}
-                        // label="Level 9"
-                        variant="standard"
-                        sx={{ width: "100%" }}
-                        name="Level_9"
-                        // onBlur={inputtrueFalse}
-                        value={form.pair_data[0].commission_level_9}
-                        onChange={(e) => {
-                          if (
-                            e.target.value === "" ||
-                            /^[\d]*\.?[\d]{0,2}$/.test(e.target.value) ||
-                            e.target.value === " "
-                          ) {
-                            input(e);
-                            form.pair_data[0].commission_level_9 =
-                              e.target.value;
-                            setForm({ ...form });
-                          }
-                        }}
-                      />
-                    </div>
-                  </th>
-                  <th>
-                    <div className="Width_levels">
-                      <TextField
-                        type="text"
-                        disabled={form.pair_data[0].total_commission == ""}
-                        // label="Level 10"
-                        variant="standard"
-                        sx={{ width: "100%" }}
-                        name="Level_10"
-                        // onBlur={inputtrueFalse}
-                        value={form.pair_data[0].commission_level_10}
-                        onChange={(e) => {
-                          if (
-                            e.target.value === "" ||
-                            /^[\d]*\.?[\d]{0,2}$/.test(e.target.value) ||
-                            e.target.value === " "
-                          ) {
-                            input(e);
-                            form.pair_data[0].commission_level_10 =
-                              e.target.value;
-                            setForm({ ...form });
-                          }
-                        }}
-                      />
-                    </div>
-                  </th>
-                </tr>
-              </thead>
-            </table>
-          </div>
-        </div>
-      );
-    } else if (dialogTitle == "Update") {
-      return (
-        <div>
-          <div className="view-commission-content-section p-2">
-            <table class="table table-responsive">
-              <thead>
-                <th>Script Name</th>
-                <th>Commision</th>
-                <th>Level 1</th>
-                <th>Level 2</th>
-                <th>Level 3</th>
-                <th>Level 4</th>
-                <th>Level 5</th>
-                <th>Level 6</th>
-                <th>Level 7</th>
-                <th>Level 8</th>
-                <th>Level 9</th>
-                <th>Level 10</th>
-              </thead>
-              <thead>
-                <tr>
-                  <th>
-                    <div className="Width_levels">
-                      <TextField
-                        disabled
-                        type="text"
-                        // label="Commision"
-                        variant="standard"
-                        sx={{ width: "100%" }}
-                        name="Commision"
-                        value={form.pair_data[0].script_name}
-                        onChange={(e) => {
-                          if (
-                            e.target.value === "" ||
-                            /^[\d]*\.?[\d]{0,2}$/.test(e.target.value) ||
-                            e.target.value === " "
-                          ) {
-                            input(e);
-                            form.pair_data[0].script_name = e.target.value;
-                            setForm({ ...form });
-                          }
-                        }}
                       />
                     </div>
                   </th>
@@ -1242,6 +1361,7 @@ function Static_Commission_Master_Edit(prop) {
     getMt5GroupName();
     GetScript();
   }, [openModel]);
+
   return (
     <div>
       <div>
@@ -1264,7 +1384,9 @@ function Static_Commission_Master_Edit(prop) {
                     className="pending-all-15px"
                   >
                     <div>
-                      <div style={{ display: "flex", justifyContent: "end" }}>
+                      
+                      <div style={{ display: "flex", justifyContent: "space-between" }}>
+                      <h5 className="pl-3"><b>{resData.structure_name}</b></h5>
                         <ColorButton
                           style={{ padding: "6px 12px" }}
                           onClick={() => {
