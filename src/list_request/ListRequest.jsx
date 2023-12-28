@@ -1375,6 +1375,116 @@ const ListRequest = () => {
 
                 {value === "fixed" && (
                   <Grid spacing={1}>
+                     <div>
+                      <div
+                        className="main-content-display"
+                        style={{
+                          borderBottom: "1px solid gray",
+                          paddingBottom: "18px",
+                          marginBottom: "11px",
+                        }}
+                      >
+                        <div className="display-element">
+                          <h6>User Name</h6>
+                          <div>{ibdata.requested_user_name}</div>
+                        </div>
+                        <div className="display-element">
+                          <h6>DATE</h6>
+                          <div>{ibdata.date}</div>
+                        </div>
+                        <div className="display-element">
+                          <h6>ACQUIRE CLIENT</h6>
+                          <div>{ibdata.acquire_client}</div>
+                        </div>
+                        <div className="display-element">
+                          <h6>COUNTRY</h6>
+                          <div>{ibdata.countries}</div>
+                        </div>
+                        <div className="display-element">
+                          <h6>EMAIL</h6>
+                          <div>{ibdata.user_email}</div>
+                        </div>
+                        <div className="display-element">
+                          <h6>Sponsor Name</h6>
+                          <div>{ibdata.sponsor_name}</div>
+                        </div>
+                        <div className="display-element">
+                          <h6>STRUCTURE NAME</h6>
+                          <div>{ibdata.structure_name}</div>
+                        </div>
+                        <div className="display-element">
+                          <h6>REFFEERED</h6>
+                          <div>{ibdata.is_reffered == "0" ? "NO" : "YES"}</div>
+                        </div>
+                        <div className="display-element">
+                          <h6>WEBSITE</h6>
+                          <div>{ibdata.is_website == "0" ? "NO" : "YES"}</div>
+                        </div>
+                        <div className="display-element">
+                          <h6>WEBSITE URL</h6>
+                          <div>{ibdata.website_url}</div>
+                        </div>
+                        <div className="display-element">
+                          <h6>REMARK</h6>
+                          <div>{ibdata.remarks}</div>
+                        </div>
+                        <div className="display-element">
+                          <h6>IB APPROVE</h6>
+                          <div
+                            className={`col s12 text-color-${
+                              ibdata.sponsor_approve == "1"
+                                ? "green"
+                                : ibdata.sponsor_approve == "2"
+                                ? "red"
+                                : "yellow"
+                            }`}
+                          >
+                            {ibdata.sponsor_approve == "1"
+                              ? "APPROVED"
+                              : ibdata.sponsor_approve == "2"
+                              ? "REJECTED"
+                              : "PENDING"}
+                          </div>
+                        </div>
+                        <div className="display-element">
+                          <h6>ADMIN APPROVE</h6>
+                          <div
+                            className={`col s12 text-color-${
+                              ibdata.admin_approve == "1"
+                                ? "green"
+                                : ibdata.admin_approve == "2"
+                                ? "red"
+                                : "yellow"
+                            }`}
+                          >
+                            {ibdata.admin_approve == "1"
+                              ? "APPROVED"
+                              : ibdata.admin_approve == "2"
+                              ? "REJECTED"
+                              : "PENDING"}
+                          </div>
+                        </div>
+                        <div className="display-element">
+                          <h6>STATUS</h6>
+                          <div
+                            className={`col s12 text-color-${
+                              ibdata.status == "1"
+                                ? "green"
+                                : ibdata.status == "2"
+                                ? "red"
+                                : "yellow"
+                            }`}
+                          >
+                            {ibdata.status == "1"
+                              ? "APPROVED"
+                              : ibdata.status == "2"
+                              ? "REJECTED"
+                              : "PENDING"}
+                          </div>
+                        </div>{" "}
+                      </div>
+                    </div>
+                    <div className="divider"></div>
                     <div>
                       {/* {SelectionOption == true && (
                         <div style={{ width: "100%" }}>

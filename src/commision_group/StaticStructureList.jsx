@@ -355,7 +355,7 @@ const StaticStructureList = (prop) => {
               sx={{ width: "100%" }}
               style={{ minWidth: "150px" }}
               renderInput={(params) => (
-                <TextField {...params} label=" Name" variant="standard" />
+                <TextField {...params} label="Select IB Name" variant="standard" />
               )}
             />
           </div>
@@ -386,7 +386,7 @@ const StaticStructureList = (prop) => {
               sx={{ width: "100%" }}
               style={{ minWidth: "150px" }}
               renderInput={(params) => (
-                <TextField {...params} label=" Group Name" variant="standard" />
+                <TextField {...params} label="Select IB Group" variant="standard" />
               )}
             />
 
@@ -415,7 +415,7 @@ const StaticStructureList = (prop) => {
               renderInput={(params) => (
                 <TextField
                   {...params}
-                  label=" Structures Name"
+                  label="Select IB Structures"
                   variant="standard"
                 />
               )}
@@ -458,7 +458,7 @@ const StaticStructureList = (prop) => {
               sx={{ width: "100%" }}
               style={{ minWidth: "150px" }}
               renderInput={(params) => (
-                <TextField {...params} label=" Name" variant="standard" />
+                <TextField {...params} label="Select IB Name" variant="standard" />
               )}
             />
           </div>
@@ -481,7 +481,7 @@ const StaticStructureList = (prop) => {
               sx={{ width: "100%" }}
               style={{ minWidth: "150px" }}
               renderInput={(params) => (
-                <TextField {...params} label=" Group Name" variant="standard" />
+                <TextField {...params} label="Select IB Group " variant="standard" />
               )}
             />
 
@@ -501,7 +501,7 @@ const StaticStructureList = (prop) => {
               renderInput={(params) => (
                 <TextField
                   {...params}
-                  label=" Structures Name"
+                  label="Select IB Structures "
                   variant="standard"
                 />
               )}
@@ -558,11 +558,11 @@ const StaticStructureList = (prop) => {
   };
   const formSubmit = async () => {
     if (form.ib_name == "") {
-      toast.error("Name is required");
+      toast.error("Please Select IB Name");
     } else if (form.ib_group_name1 == "") {
-      toast.error("Enter Group Name");
+      toast.error("Please Select IB Group");
     } else if (form.structure_name1 == "") {
-      toast.error("Enter Structure Name");
+      toast.error("Please Select IB Structure");
     } else {
       form.isLoader = true;
       setForm({ ...form });
