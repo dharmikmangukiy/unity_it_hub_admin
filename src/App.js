@@ -120,6 +120,7 @@ import Mt5_wise_ib_master_ib_list from "./report/Mt5_wise_ib_master_ib_list";
 import Ib_rebate_report from "./report/Ib_rebate_report";
 import Static_Commission_Master from "./commision_group/Static_Commission_Master.jsx";
 import Static_Commission_Master_Edit from "./commision_group/Static_Commission_Master_Edit.jsx";
+import StaticStructureList from "./commision_group/StaticStructureList.jsx";
 var redirect_url = "";
 function useScrollToTop() {
   const { pathname } = useLocation();
@@ -615,6 +616,15 @@ const App = () => {
                     exact
                     path="/ib_commision_report"
                     element={<IBCommisionReport />}
+                  />
+                       <Route
+                    exact
+                    path="/ib_commision_report"
+                    element={<IBCommisionReport />}
+                  />     <Route
+                    exact
+                    path="/user_static_structure_list"
+                    element={<StaticStructureList />}
                   />
                   <Route
                     exact

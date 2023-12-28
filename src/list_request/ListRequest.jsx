@@ -35,6 +35,7 @@ import NewDate from "../common/NewDate";
 const ListRequest = () => {
   const navigate = useNavigate();
   const [searchKeyword, setSearchKeyword] = useState("");
+  const [NewOption, setNewOption] = useState([]);
   const [openTableMenus, setOpenTableMenus] = useState([]);
   const [openModel, setOpenModel] = useState(false);
   const [isDefaultStructure, setIsDefaultStructure] = useState(true);
@@ -42,6 +43,7 @@ const ListRequest = () => {
   const [value, setValue] = React.useState();
   const [OptionState, setOptionState] = useState();
   const [SelectionOption, setSelectionOption] = useState();
+  const [DEfaultOption, setDEfaultOption] = useState([]);
   const [updateDate, setUpdateDate] = useState({
     structure_id: "",
     sponsor_approve: "",
@@ -368,6 +370,7 @@ const ListRequest = () => {
             toast.error(res.data.message);
           } else {
             setOptionState(res.data.fixed_structure_list);
+            setDEfaultOption(res.data.default_ib_group_list)
             setSelectionOption(res.data.select_comission_type);
             setIsDefaultStructure(true);
             updateDate.structure_data = res.data.data;
@@ -449,6 +452,7 @@ const ListRequest = () => {
           } else {
             setSelectionOption(res.data.select_comission_type);
             setOptionState(res.data.fixed_structure_list);
+            setDEfaultOption(res.data.default_ib_group_list)
             setOpenModel(true);
           }
         });
@@ -465,7 +469,6 @@ const ListRequest = () => {
         setGetStructuresList(res.data.data);
       }); */
   };
-  console.log(SelectionOption);
   const handleClose = () => {
     setOpenModel(false);
   };
@@ -578,8 +581,10 @@ const ListRequest = () => {
     //   }
     // }
 
-    if (updateDate.structure_name == "" && value != "fixed" ) {
+    if (updateDate.structure_name == "" && value != "fixed") {
       toast.error("Please enter structure name");
+    }else if(NewOption.length == 0){
+      toast.error("Please Select Atleast One Structure");
     } else {
       updateDate.isLoader = true;
       setUpdateDate({ ...updateDate });
@@ -607,6 +612,7 @@ const ListRequest = () => {
         param.append("structure_id", updateDate.structure_name);
         param.append("admin_approve", updateDate.admin_approve);
         param.append("remarks", updateDate.remarks);
+      param.append("structure_data", JSON.stringify(NewOption));
       }
       if (updateDate.structure_id == "") {
         param.append("action", "insert_master_structure");
@@ -698,6 +704,35 @@ const ListRequest = () => {
 
   const handleChange = (event) => {
     setValue(event.target.value);
+  };
+
+  const handleAutocompleteChange = (event, newValue, currentItem) => {
+    if (newValue) {
+      const existingIndex = NewOption.findIndex(
+        (option) => option.ib_group_level_id === currentItem.ib_group_level_id
+      );
+      if (existingIndex !== -1) {
+        const updatedOption = [...NewOption];
+        updatedOption[existingIndex] = {
+          ib_group_level_id: currentItem.ib_group_level_id,
+          structure_id: newValue.structure_id,
+        };
+        setNewOption(updatedOption);
+      } else {
+        setNewOption([
+          ...NewOption,
+          {
+            ib_group_level_id: currentItem.ib_group_level_id,
+            structure_id: newValue.structure_id,
+          },
+        ]);
+      }
+    } else {
+      const filteredOption = NewOption.filter(
+        (option) => option.ib_group_level_id !== currentItem.ib_group_level_id
+      );
+      setNewOption(filteredOption);
+    }
   };
 
   return (
@@ -1341,7 +1376,7 @@ const ListRequest = () => {
                 {value === "fixed" && (
                   <Grid spacing={1}>
                     <div>
-                      {SelectionOption == true && (
+                      {/* {SelectionOption == true && (
                         <div style={{ width: "100%" }}>
                           <label
                             htmlFor="sponsor_approve"
@@ -1369,7 +1404,56 @@ const ListRequest = () => {
                             ))}
                           </Select>
                         </div>
-                      )}
+                      )} */}
+
+                      {DEfaultOption?.map((item, index) => {
+                        return (
+                          <div className="blue_section" key={index}>
+                            <div
+                              style={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                              }}
+                             
+                            >
+                              <div className="main-section">
+                                <div className="main-section-title">
+                                  {item.ib_group_name}
+                                </div>
+                              </div>
+                              <div className="">
+                                <div className="main-section-title">
+                                  <div className="">
+                                    <Autocomplete
+                                      options={OptionState}
+                                      getOptionLabel={(option) =>
+                                        option ? option.structure_name : ""
+                                      }
+                                      onChange={(event, newValue) =>
+                                        handleAutocompleteChange(
+                                          event,
+                                          newValue,
+                                          item
+                                        )
+                                      }
+                                      sx={{ width: "100%" }}
+                                      style={{ minWidth: "150px" }}
+                                      renderInput={(params) => (
+                                        <TextField
+                                          {...params}
+                                          label="Structure List"
+                                          variant="standard"
+                                        />
+                                      )}
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+
 
                       <div>
                         <label

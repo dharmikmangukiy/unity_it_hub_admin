@@ -6,6 +6,14 @@
     line-height: 1.2;
     font-family: cairo,sans-serif;
 }
+.blue_section{
+    border-bottom: 1px solid rgb(0 0 0 / 15%);
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 10px;
+    display: block;
+    margin: 8px 0;
+}
 .status-text-approved {
     color: #18c1a7;
     font-weight: 500;
