@@ -1,5 +1,5 @@
-const Url = "https://demoadmin.unityithub.com";
-const ClientUrl = "https://demo.unityithub.com";
+const Url = "https://adminconsol.unityithub.com";
+const ClientUrl = "https://clientconsol.unityithub.com";
 // const IsApprove = {
 //   is_app: "1",
 //   AADMIN_LOGIN_ID: "14",
