@@ -1333,8 +1333,8 @@ body .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
   --white: #fff;
   --gray: #d1d2db;
   --gray-dark: #7a7b97;
-  --primary: #4e3f90;
-  --primary1: #4e3f90;
+  --primary: #ED6000;
+  --primary1: #ED6000;
 
   --secondary: #f8f9ff;
   --success: #1bc943;
@@ -5506,7 +5506,7 @@ a.text-success:hover {
   color: #12862d !important;
 }
 .text-info {
-  color: #4e3f90 !important;
+  color: #ED6000 !important;
 }
 a.text-info:focus,
 a.text-info:hover {
@@ -11891,7 +11891,7 @@ a.card-img-wrapper:hover .img-wrapper-overlay {
   }
 }
 .loginbg {
-  background: linear-gradient(135deg, rgb(64, 29, 186), rgb(130, 91, 240));
+  background: linear-gradient(135deg, rgb(186 29 29),#ED6000);
   /* background-image: url("../img/003.png"); */
   background-position: 50%;
   height: 100%;
@@ -17871,14 +17871,14 @@ input.MuiInputBase-input {
   font-size: 15px;
   padding: 7px 59px;
   color: white;
-  background: linear-gradient(135deg, rgb(64, 29, 186), rgb(130, 91, 240));
+  background: linear-gradient(135deg, rgb(186 29 29),#ED6000);
   /* background-image: linear-gradient(0deg, #842e93, #62276a);
   background-image: -ms-linear-gradient(0deg, #842e93 0, #62276a 100%); */
   box-shadow: 0 5px 15px 0 rgb(30 60 115 / 50%);
   border: 0;
 }
 .loginbutton:hover {
-  background-image: linear-gradient(0deg, #51276a, #442e93);
+  background-image: linear-gradient(0deg, #ED6000, #cd1611);
 }
 .loginbutton:focus {
   outline: none;

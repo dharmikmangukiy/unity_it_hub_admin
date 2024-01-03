@@ -432,7 +432,7 @@ const Header = (prop) => {
               anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
               variant="dot"
             >
-              <Avatar sx={{ bgcolor: "#4e3f90" }}>
+              <Avatar sx={{ bgcolor: "#ED6000" }}>
                 {" "}
                 <span>{str()}</span>
               </Avatar>{" "}
@@ -463,7 +463,7 @@ const Header = (prop) => {
               className="d-flex p-4 cursor-pointer"
               onClick={() => MyAccount()}
             >
-              <Avatar sx={{ bgcolor: "#4e3f90" }}>{str()}</Avatar>
+              <Avatar sx={{ bgcolor: "#ED6000" }}>{str()}</Avatar>
               <div className="mx-3">
                 <h6 className="font-weight-bold mb-1 text-black">
                   {prefrence.user_name}

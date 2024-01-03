@@ -117,7 +117,7 @@
   }
   .app-sidebar:hover .app-sidebar-logo img,
   .sidebar-with-4rem .app-sidebar-logo img {
-    width:200px !important;
+    width: 160px !important;
     /* margin: 0; */
   }
   .app-sidebar-fixed .app-content {

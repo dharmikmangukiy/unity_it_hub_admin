@@ -376,12 +376,12 @@ function Leaddashboard() {
                         <div className="remainderContentSection">
                           <div className="th-div3">
                             <label
-                              style={{ borderBottom: "2px solid #4e3f90" }}
+                              style={{ borderBottom: "2px solid #ED6000" }}
                             >
                               Source Name
                             </label>
                             <label
-                              style={{ borderBottom: "2px solid #4e3f90" }}
+                              style={{ borderBottom: "2px solid #ED6000" }}
                             >
                               Source Count
                             </label>
@@ -515,12 +515,12 @@ function Leaddashboard() {
                         <div className="remainderContentSection">
                           <div className="th-div3">
                             <label
-                              style={{ borderBottom: "2px solid #4e3f90" }}
+                              style={{ borderBottom: "2px solid #ED6000" }}
                             >
                               Stage Name
                             </label>
                             <label
-                              style={{ borderBottom: "2px solid #4e3f90" }}
+                              style={{ borderBottom: "2px solid #ED6000" }}
                             >
                               Leads by Stage
                             </label>
@@ -574,17 +574,17 @@ function Leaddashboard() {
                         <div className="remainderContentSection">
                           <div className="th-div2">
                             <label
-                              style={{ borderBottom: "2px solid #4e3f90" }}
+                              style={{ borderBottom: "2px solid #ED6000" }}
                             >
                               Country Name
                             </label>
                             <label
-                              style={{ borderBottom: "2px solid #4e3f90" }}
+                              style={{ borderBottom: "2px solid #ED6000" }}
                             >
                               Country Lead Count
                             </label>
                             <label
-                              style={{ borderBottom: "2px solid #4e3f90" }}
+                              style={{ borderBottom: "2px solid #ED6000" }}
                             >
                               Country Converted
                             </label>
@@ -737,12 +737,12 @@ function Leaddashboard() {
                         <div className="remainderContentSection">
                           <div className="th-div3">
                             <label
-                              style={{ borderBottom: "2px solid #4e3f90" }}
+                              style={{ borderBottom: "2px solid #ED6000" }}
                             >
                               Stage Name
                             </label>
                             <label
-                              style={{ borderBottom: "2px solid #4e3f90" }}
+                              style={{ borderBottom: "2px solid #ED6000" }}
                             >
                               Leads by Stage
                             </label>
